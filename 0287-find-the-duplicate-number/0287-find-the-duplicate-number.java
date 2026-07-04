@@ -2,7 +2,7 @@ class Solution {
     public int findDuplicate(int[] nums) {
 
         // by using floyd's cycle detection algorithm
-        // Tortoise and hare
+        
         // firstly we check duplicate exist or not
         int slow = nums[0];
         int fast = nums[0];
