@@ -3,7 +3,7 @@ class Solution {
          if (s1.length() != s2.length()) {
             return false;
         }
-
+        
         String temp = s1 + s1;
         return temp.contains(s2);
     }
