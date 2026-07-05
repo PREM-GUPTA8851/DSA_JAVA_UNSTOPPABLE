@@ -1,7 +1,9 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // I used the Three Pointer Backward Merge approach to merge two sorted arrays in-place.
     //  nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-    // nums1 = [2,5,6] m = 3, nums2 = [1,2,3] n = 3
+    // nums1 = [2,5,6, 0, 0, 0] m = 3, nums2 = [1,2,3] n = 3
+    // [1,2,2,3,5,6]
         int i = m - 1;        // 2
         int j = n - 1;        // 2
         int k = m + n - 1;    // 5
@@ -12,8 +14,15 @@ class Solution {
                 nums1[k] = nums1[i];
             // nums1[3] = nums1[2] = 3
             // nums1 = [1,2,3 ,3,5,6]
+
+            // nums1[5] = 6
+            // nums1 = {2,5,6, 0, 0, 6}
+            // nums1[4] = 5
+            // nums1[1,2,2,3,5,6]
                 i--;
                 // i = 1
+
+            // i = 1
             } else {
                 nums1[k] = nums2[j];
                 // nums1[5] = nums2[2] = 6
@@ -22,12 +31,20 @@ class Solution {
                 j--;
                 // j = 1
                 // j = 0;
+
+
+                // nums1[3] = 3
+                // j = 1
             }
 
             k--;
             // k = 4
             // k = 3;
             // k = 2
+
+            // k = 4
+            // k = 3
+            // k = 2;
         }
 
         // Agar nums2 me elements bach gaye
