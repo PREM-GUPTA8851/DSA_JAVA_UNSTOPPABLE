@@ -1,6 +1,7 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        //  nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+    //  nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+    // nums1 = [2,5,6] m = 3, nums2 = [1,2,3] n = 3
         int i = m - 1;        // 2
         int j = n - 1;        // 2
         int k = m + n - 1;    // 5
