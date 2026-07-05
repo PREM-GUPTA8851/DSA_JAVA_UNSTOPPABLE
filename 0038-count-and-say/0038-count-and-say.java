@@ -4,6 +4,7 @@ class Solution {
         String ans = "1"; // Base case
 
         // Generate sequence from 2 to n
+        // 2,3,4
         for (int i = 2; i <= n; i++) {
 
             StringBuilder temp = new StringBuilder();
