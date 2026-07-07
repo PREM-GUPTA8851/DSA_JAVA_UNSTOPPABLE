@@ -1,6 +1,5 @@
 class Solution {
     public String countAndSay(int n) {
-
         String ans = "1"; // Base case
         // Generate sequence from 2 to n
         // 2,3,4
