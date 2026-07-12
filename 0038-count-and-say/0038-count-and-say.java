@@ -17,8 +17,8 @@ class Solution {
 
         for (int j = 1; j < ans.length(); j++) {
 
-            if(ans.charAt(j) == ans.charAt(j - 1)) {
-                    count++; // count = 2
+        if(ans.charAt(j) == ans.charAt(j - 1)) {
+            count++; // count = 2
                 } else {
 
                     // Append frequency + character
