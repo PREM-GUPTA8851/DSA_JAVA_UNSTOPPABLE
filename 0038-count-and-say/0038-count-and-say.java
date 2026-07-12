@@ -8,12 +8,7 @@ class Solution {
         // i = 3
         // i = 4
             StringBuilder temp = new StringBuilder();
-            // temp = "";
             int count = 1;
-
-            // Traverse previous string
-            // ans.length = 1
-            // ans.length = 2
 
     for (int j = 1; j < ans.length(); j++) {
 
