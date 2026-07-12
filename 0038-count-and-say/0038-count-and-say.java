@@ -20,11 +20,8 @@ class Solution {
         if(ans.charAt(j) == ans.charAt(j - 1)) {
             count++; // count = 2
                 } else {
-
-                    // Append frequency + character
-                    temp.append(count); // 1
+                    temp.append(count); 
                     temp.append(ans.charAt(j - 1)); 
-
                     count = 1;
                 }
             }
