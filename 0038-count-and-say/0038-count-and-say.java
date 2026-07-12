@@ -15,7 +15,7 @@ class Solution {
             // ans.length = 1
             // ans.length = 2
 
-        for (int j = 1; j < ans.length(); j++) {
+    for (int j = 1; j < ans.length(); j++) {
 
         if(ans.charAt(j) == ans.charAt(j - 1)) {
             count++; // count = 2
