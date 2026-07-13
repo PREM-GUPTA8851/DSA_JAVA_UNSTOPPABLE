@@ -1,20 +1,17 @@
 class Solution {
     int maxSubarraySum(int[] arr) {
-
-        int currSum = 0;
-        int maxSum = Integer.MIN_VALUE;
-
-        for (int num : arr) {
-
-            currSum += num;
-
-            maxSum = Math.max(maxSum, currSum);
-
-            if (currSum < 0) {
-                currSum = 0;
+        // max subarray chahiye to ans ko min se initialise kro
+        int ans = Integer.MIN_VALUE;
+        int sum = 0;
+        for(int n: arr){
+            sum += n;
+            
+            ans = Math.max(ans,sum);
+            
+            if(sum < 0){
+                sum = 0;
             }
         }
-
-        return maxSum;
+        return ans;
     }
 }
