@@ -16,10 +16,12 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 ## Dynamic Programming
 |  |
 | ------- |
+| [0005-longest-palindromic-substring](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0005-longest-palindromic-substring) |
 | [0053-maximum-subarray](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0053-maximum-subarray) |
 ## Two Pointers
 |  |
 | ------- |
+| [0005-longest-palindromic-substring](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0005-longest-palindromic-substring) |
 | [0088-merge-sorted-array](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0088-merge-sorted-array) |
 | [0287-find-the-duplicate-number](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0287-find-the-duplicate-number) |
 ## Binary Search
@@ -37,6 +39,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 ## String
 |  |
 | ------- |
+| [0005-longest-palindromic-substring](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0005-longest-palindromic-substring) |
 | [0038-count-and-say](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0038-count-and-say) |
 | [0796-rotate-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0796-rotate-string) |
 ## String Matching
