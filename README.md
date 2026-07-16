@@ -6,6 +6,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 ## Array
 |  |
 | ------- |
+| [0031-next-permutation](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0031-next-permutation) |
 | [0053-maximum-subarray](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0053-maximum-subarray) |
 | [0056-merge-intervals](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0056-merge-intervals) |
 | [0088-merge-sorted-array](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0088-merge-sorted-array) |
@@ -24,6 +25,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 |  |
 | ------- |
 | [0005-longest-palindromic-substring](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0005-longest-palindromic-substring) |
+| [0031-next-permutation](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0031-next-permutation) |
 | [0088-merge-sorted-array](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0088-merge-sorted-array) |
 | [0287-find-the-duplicate-number](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0287-find-the-duplicate-number) |
 ## Binary Search
