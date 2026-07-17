@@ -1,8 +1,7 @@
 class Solution {
     public String longestPalindrome(String s) {
-
         int n = s.length();
-
+        
         if (n <= 1) return s;
 
         int start = 0;      // Starting index of longest palindrome
