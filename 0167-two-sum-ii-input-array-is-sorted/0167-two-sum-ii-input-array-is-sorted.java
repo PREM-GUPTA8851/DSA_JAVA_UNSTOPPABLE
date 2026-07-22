@@ -18,7 +18,6 @@ class Solution {
                 j--;
             }
         }
-
         return new int[]{};
     }
 }
