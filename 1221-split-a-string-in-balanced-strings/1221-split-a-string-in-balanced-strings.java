@@ -14,8 +14,8 @@ class Solution {
 
             if (l == r) {
                 count++;
-                l = 0;
-                r = 0;
+                // l = 0;
+                // r = 0;
             }
         }
 
