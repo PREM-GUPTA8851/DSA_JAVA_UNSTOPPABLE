@@ -13,7 +13,7 @@ class Solution {
 
                 if (nums1[i] == nums2[j]) {
                     answer1++;
-                   //break; // mil gaya, aur check karne ki zarurat nahi
+                   break; // mil gaya, aur check karne ki zarurat nahi
                 }
             }
         }
@@ -25,7 +25,7 @@ class Solution {
 
                 if (nums2[i] == nums1[j]) {
                     answer2++;
-                    //break; // mil gaya
+                    break; // mil gaya
                 }
             }
         }
