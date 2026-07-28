@@ -1,28 +1,36 @@
 class Solution {
     public String longestCommonPrefix(String[] strs) {
 
-        // Edge case
-        if (strs == null || strs.length == 0) {
-            return "";
-        }
+        if (strs == null || strs.length == 0) return "";
 
-        // First string ko prefix maan lo
         String prefix = strs[0];
 
-        // Baaki sab strings ke saath compare karo
+        // Dry Run
+        // ["flower","flow","flight"]
+        //
+        // prefix = "flower"
+
         for (int i = 1; i < strs.length; i++) {
 
-            // Jab tak current string prefix se start nahi hoti,
-            // prefix ka last character remove karte raho
+            // i = 1
+            // current = "flow"
+            // flower -> flowe -> flow
+            // match mil gaya, prefix = "flow"
+
+            // i = 2
+            // current = "flight"
+            // flow -> flo -> fl
+            // match mil gaya, prefix = "fl"
+
             while (!strs[i].startsWith(prefix)) {
                 prefix = prefix.substring(0, prefix.length() - 1);
 
-                // Agar prefix empty ho gaya
-                if (prefix.isEmpty()) {
+                if (prefix.length() == 0)
                     return "";
-                }
             }
         }
+
+        // ans = "fl"
         return prefix;
     }
 }
