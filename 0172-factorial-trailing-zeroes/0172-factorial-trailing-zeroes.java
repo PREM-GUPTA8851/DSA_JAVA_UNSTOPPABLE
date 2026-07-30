@@ -1,6 +1,7 @@
 class Solution {
     public int trailingZeroes(int n) {
-        
+    // Instead of calculating factorial,
+    // count all factors of 5 present in n!
         // n = 100
         // count = 0
 
