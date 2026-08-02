@@ -1,6 +1,5 @@
 class Solution {
 	public boolean isBalanced(String s) {
-		// code here
 		Stack<Character> st = new Stack<>();
 		
 		for (char ch : s.toCharArray()) {
