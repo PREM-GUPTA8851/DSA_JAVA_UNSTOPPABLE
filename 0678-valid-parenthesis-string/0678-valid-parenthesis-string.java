@@ -2,6 +2,8 @@ class Solution {
     public boolean checkValidString(String s) {
         // Dry Run
         // Input : "(*))"
+        // input: "()"
+        // Input : "(*)"
 
         // low = Minimum possible open brackets
         // high = Maximum possible open brackets
@@ -11,49 +13,34 @@ class Solution {
 
         for(int i = 0; i < s.length(); i++){
 
-            // i = 0
-            // s.charAt(0) = '('
-            // low = 1
-            // high = 1
-
-            // i = 1
-            // s.charAt(1) = '*'
-            // '*' -> ')' => low--
-            // '*' -> '(' => high++
-            // low = 0
-            // high = 2
-
-            // i = 2
-            // s.charAt(2) = ')'
-            // low--
-            // high--
-            // low = -1 -> 0
-            // high = 1
-
-            // i = 3
-            // s.charAt(3) = ')'
-            // low--
-            // high--
-            // low = -1 -> 0
-            // high = 0
-
-            // End
-            // low == 0
-            // Return true
-
             char ch = s.charAt(i);
+// ch = s.charAt(0) --> "("
+// ch = s.charAt(1)--> ")"
 
+// ch = s.charAt(0) --> "("
+// ch = s.charAt(1) --> "*"
+// ch = s.charAt(2)--> ")"
             if(ch == '('){
                 low++;
+                // 1
+                // 1
                 high++;
+                // 1
+                // 1
             }
             else if(ch == ')'){
                 low--;
+                // 0
+                // -1
                 high--;
+                // 0
+                // 1
             }
             else{ // '*'
                 low--;      // '*' as ')'
+                // 0
                 high++;     // '*' as '('
+                // 2
             }
 
             if(low < 0)
