@@ -1,7 +1,7 @@
 class Solution {
 	public boolean isBalanced(String s) {
 		Stack<Character> st = new Stack<>();
-		
+		// Input: s = "[{()}]"
 		for (char ch : s.toCharArray()) {
 			
 			// Opening bracket
