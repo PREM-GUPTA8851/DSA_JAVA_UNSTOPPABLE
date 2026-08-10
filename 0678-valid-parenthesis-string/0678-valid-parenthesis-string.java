@@ -1,55 +1,31 @@
 class Solution {
     public boolean checkValidString(String s) {
-        // Dry Run
-        // Input : "(*))"
-        // input: "()"
-        // Input : "(*)"
-
-        // low = Minimum possible open brackets
-        // high = Maximum possible open brackets
-
+        // we take 2 variables low and high
+        // low pointing the minimum possible open bracket's
+        // high pointing the maximum possible open bracket's 
         int low = 0;
         int high = 0;
-
-        for(int i = 0; i < s.length(); i++){
-
+        for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-// ch = s.charAt(0) --> "("
-// ch = s.charAt(1)--> ")"
-
-// ch = s.charAt(0) --> "("
-// ch = s.charAt(1) --> "*"
-// ch = s.charAt(2)--> ")"
-            if(ch == '('){
+// agar char open bracket hua tb 
+            if (ch == '(') {
                 low++;
-                // 1
-                // 1
                 high++;
-                // 1
-                // 1
             }
-            else if(ch == ')'){
+            else if (ch == ')') {
                 low--;
-                // 0
-                // -1
                 high--;
-                // 0
-                // 1
             }
-            else{ // '*'
-                low--;      // '*' as ')'
-                // 0
-                high++;     // '*' as '('
-                // 2
+            else {
+                // jb char m * milega tb
+                // y to vo close bracket le lo
+                low--;
+                // y to vo open bracket le lo 
+                high++;
             }
-
-            if(low < 0)
-                low = 0;
-
-            if(high < 0)
-                return false;
+            if(low < 0) low = 0;
+            if(high < 0) return false;
         }
-
         return low == 0;
     }
 }
