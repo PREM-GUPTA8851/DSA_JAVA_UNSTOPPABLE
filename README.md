@@ -68,6 +68,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 |  |
 | ------- |
 | [0005-longest-palindromic-substring](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0005-longest-palindromic-substring) |
+| [0013-roman-to-integer](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0013-roman-to-integer) |
 | [0014-longest-common-prefix](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0014-longest-common-prefix) |
 | [0038-count-and-say](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0038-count-and-say) |
 | [0072-edit-distance](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0072-edit-distance) |
@@ -82,6 +83,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 ## Hash Table
 |  |
 | ------- |
+| [0013-roman-to-integer](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0013-roman-to-integer) |
 | [0169-majority-element](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0169-majority-element) |
 | [0560-subarray-sum-equals-k](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0560-subarray-sum-equals-k) |
 | [2956-find-common-elements-between-two-arrays](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2956-find-common-elements-between-two-arrays) |
@@ -122,6 +124,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 ## Math
 |  |
 | ------- |
+| [0013-roman-to-integer](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0013-roman-to-integer) |
 | [0172-factorial-trailing-zeroes](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0172-factorial-trailing-zeroes) |
 ## Stack
 |  |
