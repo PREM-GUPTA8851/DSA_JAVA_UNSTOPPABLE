@@ -1,14 +1,13 @@
 class Solution {
-
     public List<String> letterCombinations(String digits) {
-
         List<String> ans = new ArrayList<>();
 
-        if (digits.length() == 0) return ans;
+        if (digits.length() == 0)
+            return ans;
 
         String[] map = {
-            "", "", "abc", "def", "ghi",
-            "jkl", "mno", "pqrs", "tuv", "wxyz"
+                "", "", "abc", "def", "ghi",
+                "jkl", "mno", "pqrs", "tuv", "wxyz"
         };
 
         solve(0, digits, map, "", ans);
@@ -17,7 +16,7 @@ class Solution {
     }
 
     void solve(int index, String digits, String[] map,
-               String current, List<String> ans) {
+            String current, List<String> ans) {
 
         if (index == digits.length()) {
             ans.add(current);
@@ -30,7 +29,7 @@ class Solution {
 
         for (int i = 0; i < letters.length(); i++) {
             solve(index + 1, digits, map,
-                  current + letters.charAt(i), ans);
+                    current + letters.charAt(i), ans);
         }
     }
 }
