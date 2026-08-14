@@ -3,8 +3,7 @@ class Solution {
         int ans = 0;
 // MCMXCIV
         for(int i = 0; i < s.length(); i++){
-            char left = s.charAt(i);
-            // left = L 
+            char left = s.charAt(i); 
         // main logic is left wala chota ho right wale se to ans m subtract kr denge 
         if(i + 1 < s.length() && value(left) < value(s.charAt(i + 1)))
         ans -= value(left);
