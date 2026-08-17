@@ -1,13 +1,6 @@
 class Solution {
     public void nextPermutation(int[] nums) {
-    //Pivot = Right se pehla element jo apne next element se chhota ho. Ye wahi element hota hai jise change karke next permutation ban sakta hai.
-/*
-nums = [1,2,3,6,5,4]
-[1,2,4,6,5,3]
-[1,2,4,3,5,6]
- */
-/// another testcase :-- [1,2,3,6, 4,5]
-        int n = nums.length;
+           int n = nums.length;
 // n = 6
         int pivot = -1;
 
@@ -55,7 +48,6 @@ nums = [1,2,3,6,5,4]
     // after reverse --> [1,2,4,3,5,6]
     /*
     Current Array
-
 [1,2,4,6,5,3]
 
 Pivot ke baad ka part
@@ -73,4 +65,4 @@ minimum arrangement me convert karna hoga.
 Descending ko minimum banane ka easiest way hai
 Reverse kar dena.
      */
-}
+    }
