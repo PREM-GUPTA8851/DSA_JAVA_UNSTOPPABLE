@@ -1,9 +1,10 @@
 class Solution {
     public List<String> letterCombinations(String digits) {
+        // 23
     List<String> ans = new ArrayList<>();
 
-    if (digits.length() == 0)
-        return ans;
+    // if (digits.length() == 0)
+    //     return ans;
 
     String[] map = {
             "", "", "abc", "def", "ghi",
