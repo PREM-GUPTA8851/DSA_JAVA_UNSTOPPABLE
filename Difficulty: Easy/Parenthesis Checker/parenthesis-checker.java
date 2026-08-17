@@ -1,37 +1,35 @@
 class Solution {
 	public boolean isBalanced(String s) {
+		// [{()}]
+		// odd length wale to pehle hi false ho jaenge
 		Stack<Character> st = new Stack<>();
-		// Input: s = "[{()}]"
-		for (char ch : s.toCharArray()) {
-			
-			// Opening bracket
-			if (ch == '(' || ch == '{' || ch == '[') {
-				st.push(ch);
+		// logic is stack use kiya jae aur usme
+		for (int i = 0; i < s.length(); i++) {
+			// sb push kiya jae open bracket k case me
+			char current = s.charAt(i); // [
+			if (!st.isEmpty() && (
+			(st.peek() == '[' && current == ']') ||
+			(st.peek() == '{' && current == '}') ||
+			(st.peek() == '(' && current == ')'))) {
+				st.pop();
+				
+				// aur jb close bracket mila tb aapn
+				// stack k top check krenge
+				// if stack k top us similar bracket k open
+				// side mila tb stack ko pop kr denge
 			}
-			
-			// Closing bracket
-			else {
-				
-				// Stack khali
-				if (st.isEmpty())
-					return false;
-				
-				// Top bracket
-				char top = st.peek();
-				
-				// Matching
-				if ((ch == ')' && top == '(') ||
-				(ch == '}' && top == '{') ||
-				(ch == ']' && top == '[')) {
-					st.pop();
-				}
-				else {
-					return false;
-				}
+			else {	// sb push kiya jae open bracket k case me
+				st.push(current); //
 			}
 		}
+		// at the end stack empty mila to fhr
+		// true return krenge
+		// otherwise false return krenge
+		if (st.isEmpty()) {
+			return true;
+		}
+		return false;
 		
-		// Sab match hue?
-		return st.isEmpty();
 	}
+	
 }
