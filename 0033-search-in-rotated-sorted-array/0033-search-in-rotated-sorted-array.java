@@ -1,95 +1,35 @@
 class Solution {
     public int search(int[] nums, int target) {
+        // [4,5,6,7,0,1,2] 
+        // pehle pivot find kr lo then 
+        int pivot = -1;
+        for(int i = nums.length - 1; i > 0 ; i--){
+            if(nums[i - 1] > nums[i]) pivot = i -1;
+        }
+        // binary search 2 part m lgao pehle starting se pivot index tk 
+        int ansl = BS(nums, 0, pivot, target);
+        // then pivot index se array k last index tk 
+        int ansr = BS(nums, pivot + 1, nums.length -1, target);
+        if(ansl != -1) return ansl;
+        else if(ansr != -1) return ansr;
 
-        int low = 0;
-        int high = nums.length - 1;
+        return -1;
+    }
 
-        // nums = [4,5,6,7,0,1,2]
-        // target = 0
-
-        while (low <= high) {
-
-            int mid = low + (high - low) / 2;
-
-            /*
-            1st Iteration
-
-            low = 0
-            high = 6
-            mid = 3
-
-            nums[mid] = 7
-
-            nums[low] <= nums[mid]
-            4 <= 7
-
-            Left Half = [4,5,6,7]
-
-            target >= nums[low] && target < nums[mid]
-            0 >= 4  -> false
-
-            low = mid + 1
-            low = 4
-            */
-
-            if (nums[mid] == target) {
+    int BS(int[] nums, int start, int end, int target){
+        while(start <= end){
+            int mid = start + (end - start)/2;
+            if(nums[mid] == target){
                 return mid;
             }
-
-            if (nums[low] <= nums[mid]) {
-
-                if (target >= nums[low] && target < nums[mid]) {
-                    high = mid - 1;
-                } else {
-                    low = mid + 1;
-                }
-
-            } else {
-
-                if (target > nums[mid] && target <= nums[high]) {
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
+            else if(nums[mid] < target) {
+                // right jao 
+                start = mid + 1;
             }
-
-            /*
-            2nd Iteration
-
-            low = 4
-            high = 6
-            mid = 5
-
-            nums[mid] = 1
-
-            nums[low] <= nums[mid]
-            0 <= 1
-
-            Left Half = [0,1]
-
-            target >= nums[low] && target < nums[mid]
-            0 >= 0
-            0 < 1
-
-            high = mid - 1
-            high = 4
-            */
+            else {
+                end = mid - 1;
+            }
         }
-
-        /*
-        3rd Iteration
-
-        low = 4
-        high = 4
-        mid = 4
-
-        nums[mid] = 0
-
-        target mil gaya
-
-        return 4
-        */
-
         return -1;
     }
 }
