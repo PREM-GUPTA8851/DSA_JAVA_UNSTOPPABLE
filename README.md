@@ -79,6 +79,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 | [0678-valid-parenthesis-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0678-valid-parenthesis-string) |
 | [0796-rotate-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0796-rotate-string) |
 | [1221-split-a-string-in-balanced-strings](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1221-split-a-string-in-balanced-strings) |
+| [3234-count-the-number-of-substrings-with-dominant-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/3234-count-the-number-of-substrings-with-dominant-ones) |
 ## String Matching
 |  |
 | ------- |
@@ -150,4 +151,8 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 |  |
 | ------- |
 | [0206-reverse-linked-list](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0206-reverse-linked-list) |
+## Enumeration
+|  |
+| ------- |
+| [3234-count-the-number-of-substrings-with-dominant-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/3234-count-the-number-of-substrings-with-dominant-ones) |
 <!---LeetCode Topics End-->
