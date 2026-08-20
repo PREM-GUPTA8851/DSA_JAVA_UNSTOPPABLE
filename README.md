@@ -155,4 +155,8 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 |  |
 | ------- |
 | [3234-count-the-number-of-substrings-with-dominant-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/3234-count-the-number-of-substrings-with-dominant-ones) |
+## Boyer–Moore Majority Vote Algorithm
+|  |
+| ------- |
+| [0169-majority-element](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0169-majority-element) |
 <!---LeetCode Topics End-->
