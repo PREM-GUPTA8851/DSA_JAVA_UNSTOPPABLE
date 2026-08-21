@@ -15,10 +15,8 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-
         List<List<Integer>> ans = new ArrayList<>();
         // Final answer store karega
-
         if (root == null)
             return ans;
         // Tree empty hai to []
