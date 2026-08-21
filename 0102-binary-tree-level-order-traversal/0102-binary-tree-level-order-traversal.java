@@ -13,124 +13,49 @@
  *     }
  * }
  */
-
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
 
         List<List<Integer>> ans = new ArrayList<>();
-        // ans = []
+        // Final answer store karega
 
         if (root == null)
             return ans;
-        // Tree empty -> []
+        // Tree empty hai to []
 
         Queue<TreeNode> q = new LinkedList<>();
+        // BFS ke liye queue
 
         q.offer(root);
-        // q = [3]
+        // Root ko queue me daal diya
 
         while (!q.isEmpty()) {
 
             int size = q.size();
-            // 1st while
-            // size = 1
+            // Current level me jitne nodes hain
 
             List<Integer> level = new ArrayList<>();
-            // level = []
+            // Current level ke nodes store honge
 
             for (int i = 0; i < size; i++) {
 
-                // i = 0
-
                 TreeNode curr = q.poll();
-                // curr = 3
-                // q = []
+                // Queue ke front node ko nikalo
 
                 level.add(curr.val);
-                // level = [3]
+                // Uski value current level me add karo
 
                 if (curr.left != null)
                     q.offer(curr.left);
-                // q = [9]
+                // Left child ko queue me daalo
 
                 if (curr.right != null)
                     q.offer(curr.right);
-                // q = [9,20]
+                // Right child ko queue me daalo
             }
 
             ans.add(level);
-            // ans = [[3]]
-
-
-
-            // 2nd while
-
-            // q = [9,20]
-
-            // size = 2
-
-            // level = []
-
-            // i = 0
-
-            // curr = 9
-            // q = [20]
-
-            // level = [9]
-
-            // 9.left = null
-            // 9.right = null
-
-            // q = [20]
-
-
-
-            // i = 1
-
-            // curr = 20
-            // q = []
-
-            // level = [9,20]
-
-            // q.offer(15)
-            // q = [15]
-
-            // q.offer(7)
-            // q = [15,7]
-
-            // ans = [[3],[9,20]]
-
-
-
-            // 3rd while
-
-            // q = [15,7]
-
-            // size = 2
-
-            // level = []
-
-            // i = 0
-
-            // curr = 15
-            // q = [7]
-
-            // level = [15]
-
-            // 15 ke children nahi
-
-
-
-            // i = 1
-
-            // curr = 7
-            // q = []
-
-            // level = [15,7]
-
-            // 7 ke children nahi
-
-            // ans = [[3],[9,20],[15,7]]
+            // Current level complete, answer me add
         }
 
         return ans;
