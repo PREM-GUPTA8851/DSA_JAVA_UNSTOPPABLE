@@ -2,43 +2,45 @@ class Solution {
     public int[] findMissingAndRepeatedValues(int[][] grid) {
 
         int n = grid.length;
-        // Example:
+        int repeated = -1;
+        int missing = -1;
+
         // grid = [[1,3],
         //         [2,2]]
-        //
-        // n = 2
-        // numbers hone chahiye = 1 to n*n
-        // = 1 to 4
-
-        int[] freq = new int[n * n + 1];
-        // freq = [0,0,0,0,0]
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
 
-                freq[grid[i][j]]++;
-                // grid[0][0] = 1
-                // freq[1]++
+                int num = Math.abs(grid[i][j]);
+                // abs zaroori hai
+                // kyunki kuch values already negative ho chuki hongi
+
+                int row = (num - 1) / n;
+                int col = (num - 1) % n;
+
+                if (grid[row][col] < 0) {
+                    repeated = num;
+                    // pehle se negative
+                    // matlab duplicate
+
+                } else {
+                    grid[row][col] *= -1;
+                    // first time mila to negative mark
+                }
             }
         }
 
-        int repeated = -1;
-        int missing = -1;
+        for (int num = 1; num <= n * n; num++) {
 
-        for (int i = 1; i <= n * n; i++) {
+            int row = (num - 1) / n;
+            int col = (num - 1) % n;
 
-            if (freq[i] == 2) {
-                repeated = i;
-                // 2 baar mila
-            }
-
-            if (freq[i] == 0) {
-                missing = i;
-                // ek baar bhi nahi mila
+            if (grid[row][col] > 0) {
+                missing = num;
+                // jo mark nahi hua wahi missing
             }
         }
 
         return new int[]{repeated, missing};
-        // [2, 4]
     }
 }
