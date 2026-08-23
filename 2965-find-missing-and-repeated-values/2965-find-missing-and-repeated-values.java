@@ -1,31 +1,41 @@
 class Solution {
     public int[] findMissingAndRepeatedValues(int[][] grid) {
 
-        int n = grid.length;
-        int repeated = -1;
-        int missing = -1;
-
         // grid = [[1,3],
         //         [2,2]]
+
+        int n = grid.length;
+        // n = 2
+
+        int repeated = -1;
+        int missing = -1;
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
 
                 int num = Math.abs(grid[i][j]);
-                // abs zaroori hai
-                // kyunki kuch values already negative ho chuki hongi
+                // i=0,j=0 → num=1
+                // i=0,j=1 → num=3
+                // i=1,j=0 → num=2
+                // i=1,j=1 → grid[1][1]=2 → num=2
 
                 int row = (num - 1) / n;
                 int col = (num - 1) % n;
+                // num=1 → row=0, col=0
+                // num=3 → row=1, col=0
+                // num=2 → row=0, col=1
+                // num=2 → row=0, col=1
 
                 if (grid[row][col] < 0) {
                     repeated = num;
-                    // pehle se negative
-                    // matlab duplicate
+                    // last 2 → grid[0][1] already negative
+                    // repeated = 2
 
                 } else {
                     grid[row][col] *= -1;
-                    // first time mila to negative mark
+                    // 1 → grid[0][0] = -1
+                    // 3 → grid[1][0] = -2
+                    // 2 → grid[0][1] = -3
                 }
             }
         }
@@ -37,10 +47,12 @@ class Solution {
 
             if (grid[row][col] > 0) {
                 missing = num;
-                // jo mark nahi hua wahi missing
+                // num=4 → grid[1][1] = 2 positive
+                // missing = 4
             }
         }
 
         return new int[]{repeated, missing};
+        // [2,4]
     }
 }
