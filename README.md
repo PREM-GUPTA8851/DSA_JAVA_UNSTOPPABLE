@@ -73,6 +73,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 | [0088-merge-sorted-array](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0088-merge-sorted-array) |
 | [0169-majority-element](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0169-majority-element) |
 | [0645-set-mismatch](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0645-set-mismatch) |
+| [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
 ## String
 |  |
 | ------- |
@@ -84,6 +85,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 | [0072-edit-distance](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0072-edit-distance) |
 | [0392-is-subsequence](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0392-is-subsequence) |
 | [0678-valid-parenthesis-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0678-valid-parenthesis-string) |
+| [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
 | [0796-rotate-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0796-rotate-string) |
 | [1221-split-a-string-in-balanced-strings](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1221-split-a-string-in-balanced-strings) |
 | [3234-count-the-number-of-substrings-with-dominant-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/3234-count-the-number-of-substrings-with-dominant-ones) |
@@ -100,12 +102,14 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 | [0169-majority-element](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0169-majority-element) |
 | [0560-subarray-sum-equals-k](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0560-subarray-sum-equals-k) |
 | [0645-set-mismatch](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0645-set-mismatch) |
+| [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
 | [2956-find-common-elements-between-two-arrays](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2956-find-common-elements-between-two-arrays) |
 | [2965-find-missing-and-repeated-values](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2965-find-missing-and-repeated-values) |
 ## Counting
 |  |
 | ------- |
 | [0169-majority-element](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0169-majority-element) |
+| [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
 | [1221-split-a-string-in-balanced-strings](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1221-split-a-string-in-balanced-strings) |
 ## Trie
 |  |
@@ -115,6 +119,7 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 |  |
 | ------- |
 | [0678-valid-parenthesis-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0678-valid-parenthesis-string) |
+| [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
 | [1221-split-a-string-in-balanced-strings](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1221-split-a-string-in-balanced-strings) |
 ## Tree
 |  |
@@ -182,4 +187,8 @@ This repository serves as a collection of my solutions to various GeeksforGeeks 
 |  |
 | ------- |
 | [2965-find-missing-and-repeated-values](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2965-find-missing-and-repeated-values) |
+## Heap (Priority Queue)
+|  |
+| ------- |
+| [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
 <!---LeetCode Topics End-->
