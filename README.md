@@ -89,6 +89,7 @@ This repository serves as collection of my solutions to various GeeksforGeeks Da
 | [0017-letter-combinations-of-a-phone-number](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0038-count-and-say](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0038-count-and-say) |
 | [0072-edit-distance](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0072-edit-distance) |
+| [0205-isomorphic-strings](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0205-isomorphic-strings) |
 | [0392-is-subsequence](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0392-is-subsequence) |
 | [0678-valid-parenthesis-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0678-valid-parenthesis-string) |
 | [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
@@ -108,6 +109,7 @@ This repository serves as collection of my solutions to various GeeksforGeeks Da
 | [0141-linked-list-cycle](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0141-linked-list-cycle) |
 | [0142-linked-list-cycle-ii](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0142-linked-list-cycle-ii) |
 | [0169-majority-element](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0169-majority-element) |
+| [0205-isomorphic-strings](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0205-isomorphic-strings) |
 | [0229-majority-element-ii](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0229-majority-element-ii) |
 | [0560-subarray-sum-equals-k](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0560-subarray-sum-equals-k) |
 | [0645-set-mismatch](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0645-set-mismatch) |
