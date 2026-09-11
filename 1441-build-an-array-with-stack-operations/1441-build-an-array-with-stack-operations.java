@@ -7,6 +7,7 @@ class Solution {
     // stream m aapn number lenge aur push krte rhenge 
     for(int i = 1; i <= n && j < target.length; i++){
         ans.add("Push");// ["Push"]
+        // i = 2 --> ["Push", "Push"]
         if(i == target[j]){
             // element mil gya 
             // 1 == 1 
