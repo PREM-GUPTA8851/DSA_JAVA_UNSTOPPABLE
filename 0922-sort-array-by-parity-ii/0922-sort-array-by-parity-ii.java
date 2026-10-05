@@ -2,7 +2,6 @@ class Solution {
     public int[] sortArrayByParityII(int[] nums) {
 
         // logic is even number ko even index par
-        
         // aur odd number ko odd index par rakhna hai
 
         int even = 0;
