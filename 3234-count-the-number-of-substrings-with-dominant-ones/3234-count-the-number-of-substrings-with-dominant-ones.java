@@ -19,6 +19,7 @@ class Solution {
             ans += len * (len + 1) / 2;
         }
 
+        // k zeros select karke valid substrings count
         for (int k = 1; k < m && k * k + k <= n; k++) {
             for (int i = 1; i + k - 1 < m; i++) {
 
