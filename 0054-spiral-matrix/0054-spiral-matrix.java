@@ -1,53 +1,42 @@
-import java.util.*;
-
 class Solution {
-    public List<Integer> spiralOrder(int[][] matrix) {
-
-        // Dry run dude-->Test Case:
-        // matrix = [[1,2,3],
-        //           [4,5,6],
-        //           [7,8,9]]
-        // Output = [1,2,3,6,9,8,7,4,5]
-
-        List<Integer> ans = new ArrayList<>();
-
-        // 4 boundaries maintain karenge
-        int top = 0;
-        int bottom = matrix.length - 1;
-        int left = 0;
-        int right = matrix[0].length - 1;
-
-        while(top <= bottom && left <= right) {
-
-            // top row: left -> right
-            for(int i = left; i <= right; i++) {
-                ans.add(matrix[top][i]);
-            }
-            top++;
-
-            // right column: top -> bottom
-            for(int i = top; i <= bottom; i++) {
-                ans.add(matrix[i][right]);
-            }
-            right--;
-
-            // bottom row: right -> left
-            if(top <= bottom) {
-                for(int i = right; i >= left; i--) {
-                    ans.add(matrix[bottom][i]);
-                }
-                bottom--;
-            }
-
-            // left column: bottom -> top
-            if(left <= right) {
-                for(int i = bottom; i >= top; i--) {
-                    ans.add(matrix[i][left]);
-                }
-                left++;
-            }
-        }
-
-        return ans;
-    }
+    public List<Integer> spiralOrder(int[][] mat) {
+		int starting_column = 0;
+		int starting_row = 0;
+		int ending_column = mat[0].length -1; // 3
+		int ending_row = mat.length -1; //3
+		
+		int total_elements = mat[0].length * mat.length;
+		int count =0;
+		
+		ArrayList<Integer> ans = new ArrayList<>();
+		
+		while(count < total_elements){
+		// pehle starting column --> ending column
+		for(int i = starting_column; i <= ending_column && count < total_elements; i++){
+		    ans.add(mat[starting_row][i]);// 1,2,3,4 // 13,14
+		    count++;
+		}
+		starting_row++;//1
+		
+		// starting row --> ending row
+		for(int i = starting_row; i <= ending_row && count < total_elements; i++){
+		    ans.add(mat[i][ending_column]);// 5,6,7
+		    count++;
+		}
+		ending_column--;
+		// ending column --> starting column
+		for(int i = ending_column; i >= starting_column && count < total_elements; i--){
+		    ans.add(mat[ending_row][i]); //8,9,10
+		    count++;
+		}
+		ending_row--;
+		// ending row --> starting row
+		for(int i = ending_row; i >= starting_row && count < total_elements; i--){
+		    ans.add(mat[i][starting_column]); // 11,12
+		    count++;
+		}
+		starting_column++;
+		}
+		return ans;
+	}
 }
