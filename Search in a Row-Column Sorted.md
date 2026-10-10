@@ -21,9 +21,97 @@ true
 - **Expected Time Complexity:** O(n + m)
 - **Expected Auxiliary Space Complexity:** O(1)
 
-### Accepted Solutions (2)
+### Accepted Solutions (4)
 
 #### Solution 1 (Java)
+
+- **Submitted:** 2026-10-10 21:48:36
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public static boolean matSearch(int matrix[][], int target) {
+        // TC: GFG matrix, har row aur column sorted hai
+// Input: mat[][] = [[3, 30, 38], [20, 52, 54], [35, 60, 62]], x = 62
+        int rows = matrix.length; // 3
+        int cols = matrix[0].length; // 3
+
+        int row = 0;
+        int col = cols - 1; // Top-right corner se start
+
+        // Jab tak row aur col valid hain
+        while (row < rows && col >= 0) {
+            // 0 < 3 && col >= 0
+            int current = matrix[row][col];
+// c = m[0][2] = 38 < 62 --> next row m jao column same rehne do
+// c = m[1][2] = 54 < 62 --> next row m jao column same
+// c = m[2][2] = 62 < 62 --> // Target mil gaya
+            if (current == target) {
+                return true;
+            }
+
+            // Current target se bada hai, toh left jayenge
+            else if (current > target) {
+                col--;
+            }
+
+            // Current target se chhota hai, toh neeche jayenge
+            else {
+                row++;
+            }
+        }
+
+        return false;
+    }
+}
+```
+
+#### Solution 2 (Java)
+
+- **Submitted:** 2026-10-10 21:48:27
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public static boolean matSearch(int matrix[][], int target) {
+        // TC: GFG matrix, har row aur column sorted hai
+// Input: mat[][] = [[3, 30, 38], [20, 52, 54], [35, 60, 62]], x = 62
+        int rows = matrix.length; // 3
+        int cols = matrix[0].length; // 3
+
+        int row = 0;
+        int col = cols - 1; // Top-right corner se start
+
+        // Jab tak row aur col valid hain
+        while (row < rows && col >= 0) {
+            // 0 < 3 && col >= 0
+            int current = matrix[row][col];
+// c = m[0][2] = 38 < 62 --> next row m jao column same rehne do
+// c = m[1][2] = 54 < 62 --> next row m jao column same
+// c = m[2][2] = 62 < 62 --> // Target mil gaya
+            if (current == target) {
+                return true;
+            }
+
+            // Current target se bada hai, toh left jayenge
+            else if (current > target) {
+                col--;
+            }
+
+            // Current target se chhota hai, toh neeche jayenge
+            else {
+                row++;
+            }
+        }
+
+        return false;
+    }
+}
+```
+
+#### Solution 3 (Java)
 
 - **Submitted:** 2026-10-10 21:35:28
 - **Status:** Correct
@@ -65,4 +153,47 @@ class Solution {
 }
 ```
 
-*Generated on: 10/10/2026, 9:35:48 pm*
+#### Solution 4 (Java)
+
+- **Submitted:** 2026-09-30 02:41:34
+- **Status:** Correct
+- **Marks:** 2
+
+```java
+class Solution {
+    public static boolean matSearch(int mat[][], int x) {
+
+        // logic is top-right se start karenge
+        // agar current x se bada hai to left jayenge
+        // agar current x se chhota hai to down jayenge
+
+        int row = 0;
+        int col = mat[0].length - 1;
+
+        while(row < mat.length && col >= 0) {
+
+            // current element x ke equal hai
+            // matlab element mil gaya
+            if(mat[row][col] == x) {
+                return true;
+            }
+
+            // current element x se bada hai
+            // left side me smaller elements hain
+            else if(mat[row][col] > x) {
+                col--;
+            }
+
+            // current element x se chhota hai
+            // next row me bigger elements mil sakte hain
+            else {
+                row++;
+            }
+        }
+
+        return false;
+    }
+}
+```
+
+*Generated on: 10/10/2026, 9:48:51 pm*
