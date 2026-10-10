@@ -65,47 +65,4 @@ class Solution {
 }
 ```
 
-#### Solution 2 (Java)
-
-- **Submitted:** 2026-09-30 02:41:34
-- **Status:** Correct
-- **Marks:** 2
-
-```java
-class Solution {
-    public static boolean matSearch(int mat[][], int x) {
-
-        // logic is top-right se start karenge
-        // agar current x se bada hai to left jayenge
-        // agar current x se chhota hai to down jayenge
-
-        int row = 0;
-        int col = mat[0].length - 1;
-
-        while(row < mat.length && col >= 0) {
-
-            // current element x ke equal hai
-            // matlab element mil gaya
-            if(mat[row][col] == x) {
-                return true;
-            }
-
-            // current element x se bada hai
-            // left side me smaller elements hain
-            else if(mat[row][col] > x) {
-                col--;
-            }
-
-            // current element x se chhota hai
-            // next row me bigger elements mil sakte hain
-            else {
-                row++;
-            }
-        }
-
-        return false;
-    }
-}
-```
-
 *Generated on: 10/10/2026, 9:35:48 pm*
