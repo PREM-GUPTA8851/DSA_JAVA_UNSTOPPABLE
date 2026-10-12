@@ -42,6 +42,7 @@ This repository serves as collection of my solutions to various GeeksforGeeks Da
 | [1703-minimum-adjacent-swaps-for-k-consecutive-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1703-minimum-adjacent-swaps-for-k-consecutive-ones) |
 | [1886-determine-whether-matrix-can-be-obtained-by-rotation](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1886-determine-whether-matrix-can-be-obtained-by-rotation) |
 | [2149-rearrange-array-elements-by-sign](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2149-rearrange-array-elements-by-sign) |
+| [2643-row-with-maximum-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2643-row-with-maximum-ones) |
 | [2956-find-common-elements-between-two-arrays](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2956-find-common-elements-between-two-arrays) |
 | [2965-find-missing-and-repeated-values](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2965-find-missing-and-repeated-values) |
 ## Divide and Conquer
@@ -258,6 +259,7 @@ This repository serves as collection of my solutions to various GeeksforGeeks Da
 | [0054-spiral-matrix](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0054-spiral-matrix) |
 | [0074-search-a-2d-matrix](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0074-search-a-2d-matrix) |
 | [1886-determine-whether-matrix-can-be-obtained-by-rotation](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1886-determine-whether-matrix-can-be-obtained-by-rotation) |
+| [2643-row-with-maximum-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2643-row-with-maximum-ones) |
 | [2965-find-missing-and-repeated-values](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2965-find-missing-and-repeated-values) |
 ## Heap (Priority Queue)
 |  |
