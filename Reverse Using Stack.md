@@ -39,8 +39,6 @@ keeG
 - **Expected Time Complexity:** O(n)
 - **Expected Auxiliary Space Complexity:** O(n)
 
-### Accepted Solutions (4)
-
 #### Solution 1 (Java)
 
 - **Submitted:** 2026-10-12 22:36:54
