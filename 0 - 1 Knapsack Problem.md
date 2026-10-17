@@ -99,32 +99,4 @@ class Solution {
 }
 ```
 
-#### Solution 2 (Java)
-
-- **Submitted:** 2026-10-17 18:22:32
-- **Status:** Correct
-- **Marks:** 4
-
-```java
-class Solution {
-	public int knapsack(int W, int val[], int wt[]) {
-		int n = wt.length;
-		int[] dp = new int[W + 1];
-		
-		for (int i = 0; i < n; i++) {
-			// Traverse backward: each item can be used only once.
-			for (int w = W; w >= wt[i]; w--) {
-				dp[w] = Math.max(dp[w],
-				val[i] + dp[w - wt[i]]);
-				
-				// Item 1: weight=1, value=15 -> dp[4]=15
-				// Item 2: weight=3, value=20 -> dp[4]=35
-				// Item 3: weight=4, value=30 -> dp[4] remains 35
-			}
-		}
-		return dp[W];
-	}
-}
-```
-
 *Generated on: 17/10/2026, 8:17:58 pm*
