@@ -23,7 +23,6 @@ The problem can be found at the following link: [Question Link](https://www.geek
 class Solution {
     public int knapsack(int W, int val[], int wt[]) {
        
-        	// Problem Explanation:
 		// Humein items ke weights aur values diye hain aur bag ki capacity W hai.
 		// Humein maximum value find karni hai without exceeding capacity.
 		// Har item ko ya toh ek baar le sakte hain ya skip kar sakte hain.
