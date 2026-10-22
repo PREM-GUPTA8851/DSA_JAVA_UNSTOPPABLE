@@ -29,6 +29,95 @@ s1 = "aab", s2 = "aba"Output: true
 
 #### Solution 1 (Java)
 
+- **Submitted:** 2026-10-23 00:25:10
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public boolean areRotations(String s1, String s2) {
+       /*
+         Input: s1 = "aab", s2 = "aba"
+         Output: true
+         Explanation: After 1 left rotation, s1 will become equal to s2.
+       
+        Input: s1 = "abcd", s2 = "acbd"
+        Output: false
+        Explanation: Strings are not rotations of each other.
+        
+        
+       */
+        int n = s1.length();
+// n = 3
+// n = 4
+        // Equal length is already guaranteed by the question
+        
+        if (n == 0) return true;
+
+        // Rotation must appear in the doubled string
+        String text = s1 + s1;
+// text = aabaab
+// text = abcdabcd
+        // Build LPS array for pattern s2
+        // lps = [0,0,0]
+        // lps = [0,0,00,]
+        int[] lps = new int[n];
+        int len = 0;
+        int i = 1;
+
+        while (i < n) {
+            // i--> 1 < 3
+            // i --> 2 < 3
+            // s2.charAt(2) == s2.charAt(0) = a = a)equal in this case
+            
+            
+    
+            if (s2.charAt(i) == s2.charAt(len)) {
+                // s2.charAt(1) = b = s2.charAt(0) = a
+                // b != a
+                lps[i] = ++len;
+                // lps[2] = 1
+                i++;
+                // 3
+            } else if (len > 0) {
+                len = lps[len - 1];
+            } else {
+                lps[i] = 0;
+                // lps[1] = 0
+                i++;
+                // 2
+            }
+        }
+// lps[] = [0,0,1]-->aba
+        // Search s2 in s1 + s1 using KMP
+        i = 0;
+        int j = 0;
+// i < 6
+        while (i < text.length()) {
+            // text -->aabaab; 
+            //    s2--> aba
+            // text.charAt(0) == a = a--> equal --> i , j = 1
+            // a== a; b==b;a==a --> j == 3 --> true;
+            if (text.charAt(i) == s2.charAt(j)) {
+                i++;
+                j++;
+
+                if (j == n) return true;
+            } else if (j > 0) {
+                j = lps[j - 1];
+                // j = lps[1 - 1] = lps[0] = 0
+            } else {
+                i++;
+            }
+        }
+
+        return false;
+    }
+}
+```
+
+#### Solution 2 (Java)
+
 - **Submitted:** 2026-10-22 21:40:37
 - **Status:** Correct
 - **Marks:** 0
@@ -84,7 +173,7 @@ class Solution {
 }
 ```
 
-#### Solution 2 (Java)
+#### Solution 3 (Java)
 
 - **Submitted:** 2026-10-20 21:47:19
 - **Status:** Correct
@@ -142,7 +231,7 @@ class Solution {
 }
 ```
 
-#### Solution 3 (Java)
+#### Solution 4 (Java)
 
 - **Submitted:** 2026-10-20 00:10:20
 - **Status:** Correct
@@ -199,7 +288,7 @@ class Solution {
 }
 ```
 
-#### Solution 4 (Java)
+#### Solution 5 (Java)
 
 - **Submitted:** 2026-10-20 00:05:44
 - **Status:** Correct
@@ -256,25 +345,4 @@ class Solution {
 }
 ```
 
-#### Solution 5 (Java)
-
-- **Submitted:** 2026-07-04 16:27:47
-- **Status:** Correct
-- **Marks:** 0
-
-```java
-class Solution {
-  public:
-    bool areRotations(string &s1, string &s2) {
-        
-        if (s1.length() != s2.length())
-            return false;
-
-        string temp = s1 + s1;
-
-        return temp.find(s2) != string::npos;
-    }
-};
-```
-
-*Generated on: 22/10/2026, 9:41:37 pm*
+*Generated on: 23/10/2026, 12:26:12 am*
