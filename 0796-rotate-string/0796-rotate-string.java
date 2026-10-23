@@ -10,7 +10,19 @@ class Solution {
     /*
     Input: s = "abcde", goal = "cdeab"
     
+    s1 = "abab"
+s2 = "baba"
     */
+    // s1--> abc --> s2--> abcd
+    // ky aapn s1 ko s2 jitna bna paenge rotate krke add krke nhi so not
+    // possible so we return false in case of length unmatched
+    /*
+    aapn ko pattern search krna h string m so pehle length equal ho tb hi aapn roate krke pattern find kr paenge 
+    // fhr by KMP algo which gives less time complexity (n + m)as compare to rabin carp --> hash_collision algo
+    // so aapn rotation k liye string ko double krke text bnae aur us text m find kre ki pattern mil rha y nhi 
+    / lps array ki need isliye pdi bcz vo duplicate prefix suffix ko dobara recheck nhi krta ki string m vo present h y nhi 
+    pehle aapn lps array m index store krwae ki longest prefix suffix aapn ko kaha tk milega aur ky milega aur fhr pattern ko text m find krenge.
+     */
 
         if (s1.length() != s2.length()) {
             return false;
