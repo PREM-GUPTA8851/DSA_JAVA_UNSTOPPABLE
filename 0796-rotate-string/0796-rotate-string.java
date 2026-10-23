@@ -20,7 +20,7 @@ class Solution {
         String text = s1 + s1;
 // text = abcdeabcde
 // text = abcabc
-        // now take an array of size pattern length bcz storing duplicates index
+        // now take an array of size string length bcz storing duplicates index
         int n = s1.length(); // 5 
         // abc --> 3
         int[] lps = new int[n]; // [0,0,0,0,0]
