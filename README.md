@@ -350,4 +350,8 @@ This repository serves as collection of my solutions to various GeeksforGeeks Da
 |  |
 | ------- |
 | [0416-partition-equal-subset-sum](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0416-partition-equal-subset-sum) |
+## Manacher
+|  |
+| ------- |
+| [0005-longest-palindromic-substring](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0005-longest-palindromic-substring) |
 <!---LeetCode Topics End-->
