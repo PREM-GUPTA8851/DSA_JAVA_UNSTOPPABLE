@@ -4,8 +4,8 @@ class Solution {
             return s;
         }
 
-        int start = 0;
-        int maxLen = 1;
+    int start = 0;
+    int maxLen = 1;
 // using the algo expand around centre 
         for (int i = 0; i < s.length(); i++) {
             // Odd-length palindrome
