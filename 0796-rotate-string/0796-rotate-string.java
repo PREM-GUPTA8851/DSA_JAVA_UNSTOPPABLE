@@ -1,5 +1,6 @@
 class Solution {
     public boolean rotateString(String s1, String s2) {
+      
         // method 1:-- 
         // if (s1.length() != s2.length()) {
         //     return false;
