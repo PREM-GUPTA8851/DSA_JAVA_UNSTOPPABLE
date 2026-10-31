@@ -24,7 +24,8 @@ class Solution {
 
         return s.substring(start, start + maxLen);
     }
-// expand around centre 
+// expand around centre
+ 
 // bab--> i = 1 point at a 
 // a == a--> left --; right++; --> b == b 
 // left-- --> left = -1; 
