@@ -21,11 +21,145 @@ The problem can be found at the following link: [Question Link](https://www.geek
 - **Expected Time Complexity:** O(V + E)
 - **Expected Auxiliary Space Complexity:** O(V + E)
 
-### Accepted Solutions (2)
+### Accepted Solutions (5)
 
 #### Solution 1 (Java)
 
-- **Submitted:** 2026-11-02 21:30:47
+- **Submitted:** 2026-11-03 00:32:10
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+import java.util.*;
+
+class Solution {
+
+    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
+
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        // Nodes 0 se V-1 tak hain, isliye boolean[] efficient hai.
+        boolean[] visited = new boolean[adj.size()];
+
+        // DFS always starts from node 0.
+        dfsHelper(0, adj, visited, ans);
+
+        return ans;
+    }
+
+    static void dfsHelper(
+        int node,
+        ArrayList<ArrayList<Integer>> adj,
+        boolean[] visited,
+        ArrayList<Integer> ans
+    ) {
+
+        // Current node ko visited mark karo.
+        visited[node] = true;
+
+        // Traversal result mein current node add karo.
+        ans.add(node);
+
+        /*
+         EXAMPLE:
+         adj = [[2, 3, 1], [0], [0, 4], [0], [2]]
+
+         Initially:
+         node = 0
+         visited = [false, false, false, false, false]
+         ans = []
+
+         visited[0] = true
+         ans = [0]
+
+         Neighbours of 0 = [2, 3, 1]
+        */
+
+        for (int neighbor : adj.get(node)) {
+
+            if (!visited[neighbor]) {
+
+                /*
+                 Agar neighbour visit nahi hua:
+                 toh us neighbour ke liye DFS call karo.
+
+                 Example:
+                 node = 0
+                 neighbor = 2
+
+                 dfsHelper(2, adj, visited, ans)
+                */
+
+                dfsHelper(neighbor, adj, visited, ans);
+            }
+        }
+
+        /*
+         DRY RUN:
+
+         CALL 1: node = 0
+         visited = [true, false, false, false, false]
+         ans = [0]
+
+         Neighbour 2 unvisited -> DFS(2)
+
+         CALL 2: node = 2
+         visited = [true, false, true, false, false]
+         ans = [0, 2]
+
+         Neighbours of 2 = [0, 4]
+
+         0 already visited -> skip
+         4 unvisited -> DFS(4)
+
+         CALL 3: node = 4
+         visited = [true, false, true, false, true]
+         ans = [0, 2, 4]
+
+         Neighbour of 4 = [2]
+         2 already visited -> skip
+
+         DFS(4) finishes.
+         Backtrack to node 2.
+
+         Node 2 ke neighbours complete.
+         DFS(2) finishes.
+         Backtrack to node 0.
+
+         Ab node 0 ka next neighbour = 3
+
+         CALL 4: node = 3
+         visited = [true, false, true, true, true]
+         ans = [0, 2, 4, 3]
+
+         Neighbour of 3 = [0]
+         0 already visited -> skip
+
+         DFS(3) finishes.
+         Backtrack to node 0.
+
+
+         Ab node 0 ka next neighbour = 1
+
+         CALL 5: node = 1
+         visited = [true, true, true, true, true]
+         ans = [0, 2, 4, 3, 1]
+
+         Neighbour of 1 = [0]
+         0 already visited -> skip
+
+         DFS(1) finishes.
+
+         Node 0 ke saare neighbours complete.
+         DFS traversal complete.
+        */
+    }
+}
+```
+
+#### Solution 2 (Java)
+
+- **Submitted:** 2026-11-03 00:28:00
 - **Status:** Correct
 - **Marks:** 0
 
@@ -156,11 +290,51 @@ class Solution {
 }
 ```
 
-#### Solution 2 (Java)
+#### Solution 3 (Java)
 
-- **Submitted:** 2026-11-02 21:30:41
+- **Submitted:** 2026-11-03 00:27:28
 - **Status:** Correct
-- **Marks:** 2
+- **Marks:** 0
+
+```java
+class Solution {
+    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
+       // ans k liye array list bnaenge bcz function m whi return krna h
+       
+       ArrayList<Integer> ans = new ArrayList<>();
+       boolean[] visited = new boolean[adj.size()];
+    //   Queue<Integer> q = new LinkedList<>();
+       
+       
+        
+    
+        dfsHelper(0, adj, ans, visited);
+        return ans;
+    }
+    
+public static void dfsHelper(int node, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> ans, boolean[] visited){
+
+        visited[node] = true;
+        ans.add(node);
+      
+            
+            for(int neighbour : adj.get(node)){
+                if(!visited[neighbour]){
+                    // to waps se uske neighbour check kro
+                    visited[neighbour] = true;
+                    dfsHelper(neighbour, adj, ans, visited);
+                }
+            }
+            
+        }
+}
+```
+
+#### Solution 4 (Java)
+
+- **Submitted:** 2026-11-02 22:45:04
+- **Status:** Correct
+- **Marks:** 0
 
 ```java
 import java.util.*;
@@ -289,4 +463,137 @@ class Solution {
 }
 ```
 
-*Generated on: 2/11/2026, 9:31:13 pm*
+#### Solution 5 (Java)
+
+- **Submitted:** 2026-11-02 22:42:49
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+import java.util.*;
+
+class Solution {
+
+    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
+
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        // Nodes 0 se V-1 tak hain, isliye boolean[] efficient hai.
+        boolean[] visited = new boolean[adj.size()];
+
+        // DFS always starts from node 0.
+        dfsHelper(0, adj, visited, ans);
+
+        return ans;
+    }
+
+    static void dfsHelper(
+        int node,
+        ArrayList<ArrayList<Integer>> adj,
+        boolean[] visited,
+        ArrayList<Integer> ans
+    ) {
+
+        // Current node ko visited mark karo.
+        visited[node] = true;
+
+        // Traversal result mein current node add karo.
+        ans.add(node);
+
+        /*
+         EXAMPLE:
+         adj = [[2, 3, 1], [0], [0, 4], [0], [2]]
+
+         Initially:
+         node = 0
+         visited = [false, false, false, false, false]
+         ans = []
+
+         visited[0] = true
+         ans = [0]
+
+         Neighbours of 0 = [2, 3, 1]
+        */
+
+        for (int neighbor : adj.get(node)) {
+
+            if (!visited[neighbor]) {
+
+                /*
+                 Agar neighbour visit nahi hua:
+                 toh us neighbour ke liye DFS call karo.
+
+                 Example:
+                 node = 0
+                 neighbor = 2
+
+                 dfsHelper(2, adj, visited, ans)
+                */
+
+                dfsHelper(neighbor, adj, visited, ans);
+            }
+        }
+
+        /*
+         DRY RUN:
+
+         CALL 1: node = 0
+         visited = [true, false, false, false, false]
+         ans = [0]
+
+         Neighbour 2 unvisited -> DFS(2)
+
+         CALL 2: node = 2
+         visited = [true, false, true, false, false]
+         ans = [0, 2]
+
+         Neighbours of 2 = [0, 4]
+
+         0 already visited -> skip
+         4 unvisited -> DFS(4)
+
+         CALL 3: node = 4
+         visited = [true, false, true, false, true]
+         ans = [0, 2, 4]
+
+         Neighbour of 4 = [2]
+         2 already visited -> skip
+
+         DFS(4) finishes.
+         Backtrack to node 2.
+
+         Node 2 ke neighbours complete.
+         DFS(2) finishes.
+         Backtrack to node 0.
+
+         Ab node 0 ka next neighbour = 3
+
+         CALL 4: node = 3
+         visited = [true, false, true, true, true]
+         ans = [0, 2, 4, 3]
+
+         Neighbour of 3 = [0]
+         0 already visited -> skip
+
+         DFS(3) finishes.
+         Backtrack to node 0.
+
+         Ab node 0 ka next neighbour = 1
+
+         CALL 5: node = 1
+         visited = [true, true, true, true, true]
+         ans = [0, 2, 4, 3, 1]
+
+         Neighbour of 1 = [0]
+         0 already visited -> skip
+
+         DFS(1) finishes.
+
+         Node 0 ke saare neighbours complete.
+         DFS traversal complete.
+        */
+    }
+}
+```
+
+*Generated on: 3/11/2026, 12:32:52 am*
