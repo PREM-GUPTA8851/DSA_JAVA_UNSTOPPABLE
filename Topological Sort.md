@@ -124,7 +124,7 @@ class Solution {
                 dfs(neighbour, adj, visited, st);
             }
         }
-// in short
+        // in short
         // Node ko neighbours visit karne KE BAAD push karte hain.
         // Isi wajah se stack se pop karne par topological order milta hai.
         st.push(node);
