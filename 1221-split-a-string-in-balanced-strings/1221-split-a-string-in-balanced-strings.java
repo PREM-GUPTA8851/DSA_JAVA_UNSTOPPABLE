@@ -1,25 +1,35 @@
 class Solution {
     public int balancedStringSplit(String s) {
 
-        int l = 0;
-        int r = 0;
+        int balance = 0;
         int count = 0;
+
+        // Example: s = "RLRRLLRLRL"
+        //
+        // R  L  R  R  L  L  R  L  R  L
+        // +1 -1 +1 +1 -1 -1 +1 -1 +1 -1
+        //
+        // balance: 1  0  1  2  1  0  1  0  1  0
+        // count:   0  1  1  1  1  2  2  3  3  4
+        //
+        // Jab balance == 0 hota hai, ek balanced
+        // substring mil jaati hai aur count increase hota hai.
 
         for (int i = 0; i < s.length(); i++) {
 
-            if (s.charAt(i) == 'L')
-                l++;
-            else
-                r++;
+            char ch = s.charAt(i);
 
-            if (l == r) {
-                count++;
-                // l = 0;
-                // r = 0;
+            if (ch == 'R') {
+                balance++;  // R mila toh +1
+            } else {
+                balance--;  // L mila toh -1
+            }
+
+            if (balance == 0) {
+                count++;    // Ek balanced string complete
             }
         }
 
-        return count;
-    
+        return count; //  4
     }
 }
