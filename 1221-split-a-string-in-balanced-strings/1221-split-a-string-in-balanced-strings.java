@@ -4,7 +4,7 @@ class Solution {
         int balance = 0;
         int count = 0;
 
-        // Example: s = "RLRRLLRLRL"
+        // Dry Run : s = "RLRRLLRLRL"
         //
         // R  L  R  R  L  L  R  L  R  L
         // +1 -1 +1 +1 -1 -1 +1 -1 +1 -1
