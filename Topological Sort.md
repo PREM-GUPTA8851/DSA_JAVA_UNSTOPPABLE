@@ -27,453 +27,188 @@ The problem can be found at the following link: [Question Link](https://www.geek
 - **Marks:** 0
 
 ```java
+import java.util.*;
+
 class Solution {
     ArrayList<Integer> topoSort(ArrayList<ArrayList<Integer>> adj) {
 /*topological sort meaning :-- jb aapn ko directed acyclic graph
 (DAG) m aese nodes sbse pehle chahiye jinke outgoing edges jaa rhi ho
-means unpe incoming edges n ho aese nodes pehle chahiye 
+means unpe incoming edges n ho aese nodes pehle chahiye
 
 so graph ko aapn pehle last tk visite krenge means depth m
-jisse uske saaare neighbours cover up ho aur jaise hi neighbours 
-end ho usko stack m push krennge 
+jisse uske saaare neighbours cover up ho aur jaise hi neighbours
+end ho usko stack m push krennge
 bcz yha last in first out jaisa pttern follow ho rha h
 
-Node ko neighbours par jaane se pehle visited mark karna zaroori hai. 
-Isse agar graph mein cycle ho ya koi neighbour wapas 
-isi node tak pahunchta ho, toh DFS us node ko dobara 
+Node ko neighbours par jaane se pehle visited mark karna zaroori hai.
+Isse agar graph mein cycle ho ya koi neighbour wapas
+isi node tak pahunchta ho, toh DFS us node ko dobara
 call nahi karega
-apprach :-- 
+
+apprach :--
 */
     // so sbse pehle visited mark k liye array create krenge
-    // jisse pta lge is index k neighbour aapn visit kr liye h 
+    // jisse pta lge is index k neighbour aapn visit kr liye h
     boolean[] visited = new boolean[adj.size()];
+
+    // Initially:
+    // visited = [F, F, F, F]
+
     // we are using stack for retreiving answer at last
     Stack<Integer> st = new Stack<>();
+
+    // Initially:
+    // st = []
+
     ArrayList<Integer> ans = new ArrayList<>();
-    
-    // 0 --> 1 & 2 --> 3 --> adj --> [1,2], [3], [3], []
-    
+
+    // Initially:
+    // ans = []
+
+    // TEST CASE:
+    // V = 4
+    //
+    // Graph: 0--> 1 & 2 --> 3
+    // 0 -> 1
+    // 0 -> 2
+    // 1 -> 3
+    // 2 -> 3
+    //
+    // adj.get(0) = [1, 2]
+    // adj.get(1) = [3]
+    // adj.get(2) = [3]
+    // adj.get(3) = []
+
     // apply dfs to each node
     for(int i = 0; i < adj.size(); i++){
+
+        // i = 0
+        // visited[0] = false
+        // Isliye dfs(0) call hoga.
+
         if(!visited[i]) dfs(i, adj, st, visited);
+
+        // DFS(0) complete hone ke baad:
+        //
+        // visited = [T, T, T, T]
+        // Stack bottom -> top = [3, 1, 2, 0]
+        //
+        // i = 1 -> already visited, DFS nahi chalega
+        // i = 2 -> already visited, DFS nahi chalega
+        // i = 3 -> already visited, DFS nahi chalega
     }
-    
+
     // yha tk to saare elements stack m aa jaenge
-    // to fhr stack se element nikalenge aur arraylist m add krenge 
+    // to fhr stack se element nikalenge aur arraylist m add krenge
+
+    // Stack bottom -> top = [3, 1, 2, 0]
+    // Stack ka TOP element = 0
+
     while(!st.isEmpty()){
+
+        // 1st pop: 0
+        // ans = [0]
+        //
+        // 2nd pop: 2
+        // ans = [0, 2]
+        //
+        // 3rd pop: 1
+        // ans = [0, 2, 1]
+        //
+        // 4th pop: 3
+        // ans = [0, 2, 1, 3]
+
         ans.add(st.pop());
     }
+
     return ans;
+    // Final answer = [0, 2, 1, 3]
     }
-    
-    public void dfs(int node,ArrayList<ArrayList<Integer>> adj, Stack<Integer> st,boolean[] visited){
-        // node 0 aaya 
-        
+
+    public void dfs(int node, ArrayList<ArrayList<Integer>> adj,
+                    Stack<Integer> st, boolean[] visited){
+
+        // node 0 aaya
+
         visited[node] = true;
+
+        // DFS(0):
+        // node = 0
+        // visited = [T, F, F, F]
+        // Neighbours = [1, 2]
+        //
+        // Pehla neighbour = 1
+        // visited[1] false hai, so dfs(1) call hoga.
+
+        // DFS(1):
+        // node = 1
+        // visited = [T, T, F, F]
+        // Neighbours = [3]
+        //
+        // Neighbour = 3
+        // visited[3] false hai, so dfs(3) call hoga.
+
+        // DFS(3):
+        // node = 3
+        // visited = [T, T, F, T]
+        // Neighbours = []
+        //
+        // Koi neighbour nahi hai.
+        // Loop nahi chalega.
+        // st.push(3)
+        // Stack = [3]
+
+        // DFS(3) return hoga, control DFS(1) mein aayega.
+        //
+        // DFS(1):
+        // Neighbour 3 process ho chuka hai.
+        // Ab st.push(1)
+        // Stack = [3, 1]
+
+        // DFS(1) return hoga, control DFS(0) mein aayega.
+        //
+        // DFS(0):
+        // Ab next neighbour = 2
+        // visited[2] false hai, so dfs(2) call hoga.
+
+        // DFS(2):
+        // node = 2
+        // visited = [T, T, T, T]
+        // Neighbours = [3]
+        //
+        // visited[3] already true hai.
+        // Isliye dfs(3) dobara call nahi hoga.
+        //
+        // Ab st.push(2)
+        // Stack = [3, 1, 2]
+
+        // DFS(2) return hoga, control DFS(0) mein aayega.
+        //
+        // DFS(0):
+        // Neighbours 1 aur 2 dono process ho gaye.
+        // Ab st.push(0)
+        // Stack = [3, 1, 2, 0]
+
         for(int neighbour: adj.get(node)){
+
             if(!visited[neighbour]){
-                visited[neighbour] = true;
+
+                // Tumhare code mein ye line thi:
+                // visited[neighbour] = true;
+                //
+                // Iski zaroorat nahi hai, kyunki dfs()
+                // ke start mein hi visited[node] = true hota hai.
+                // Isliye extra line hata sakte ho.
+
                 dfs(neighbour, adj, st, visited);
             }
         }
-        st.push(node);
-    }
-    
-}
-```
 
-#### Solution 2 (Java)
-
-- **Submitted:** 2026-11-05 00:00:17
-- **Status:** Correct
-- **Marks:** 0
-
-```java
-class Solution {
-    ArrayList<Integer> topoSort(ArrayList<ArrayList<Integer>> adj) {
-/*topological sort meaning :-- jb aapn ko directed acyclic graph
-(DAG) m aese nodes sbse pehle chahiye jinke outgoing edges jaa rhi ho
-means unpe incoming edges n ho aese nodes pehle chahiye 
-
-so graph ko aapn pehle last tk visite krenge means depth m
-jisse uske saaare neighbours cover up ho aur jaise hi neighbours 
-end ho usko stack m push krennge 
-bcz yha last in first out jaisa pttern follow ho rha h
-apprach :-- 
-*/
-    // so sbse pehle visited mark k liye array create krenge
-    // jisse pta lge is index k neighbour aapn visit kr liye h 
-    boolean[] visited = new boolean[adj.size()];
-    // we are using stack for retreiving answer at last
-    Stack<Integer> st = new Stack<>();
-    ArrayList<Integer> ans = new ArrayList<>();
-    
-    // 0 --> 1 & 2 --> 3 --> adj --> [1,2], [3], [3], []
-    
-    // apply dfs to each node
-    for(int i = 0; i < adj.size(); i++){
-        if(!visited[i]) dfs(i, adj, st, visited);
-    }
-    
-    // yha tk to saare elements stack m aa jaenge
-    // to fhr stack se element nikalenge aur arraylist m add krenge 
-    while(!st.isEmpty()){
-        ans.add(st.pop());
-    }
-    return ans;
-    }
-    
-    public void dfs(int node,ArrayList<ArrayList<Integer>> adj, Stack<Integer> st,boolean[] visited){
-        // node 0 aaya 
-        
-        visited[node] = true;
-        for(int neighbour: adj.get(node)){
-            if(!visited[neighbour]){
-                visited[neighbour] = true;
-                dfs(neighbour, adj, st, visited);
-            }
-        }
-        st.push(node);
-    }
-    
-}
-```
-
-#### Solution 3 (Java)
-
-- **Submitted:** 2026-11-04 22:52:25
-- **Status:** Correct
-- **Marks:** 0
-
-```java
-import java.util.*;
-
-class Solution {
-    ArrayList<Integer> topoSort(ArrayList<ArrayList<Integer>> adj) {
-
-        int V = adj.size();
-
-        boolean[] visited = new boolean[V];
-        // visited = [F, F, F, F]
-
-        Stack<Integer> st = new Stack<>();
-        // Stack bottom -> top
-
-       
-        // Edges: 0 -> 1, 0 -> 2, 1 -> 3, 2 -> 3
-        //
-        // adj.get(0) = [1, 2]
-        // adj.get(1) = [3]
-        // adj.get(2) = [3]
-        // adj.get(3) = []
-
-        for (int i = 0; i < V; i++) {
-
-            // i = 0
-            // visited[0] = false, so DFS(0) call hoga
-
-            // i = 1, 2, 3 baad mein check honge
-            if (!visited[i]) {
-                dfs(i, adj, visited, st);
-            }
-        }
-
-        // DFS complete hone ke baad:
-        // Stack bottom -> top: [3, 1, 2, 0]
-        //
-        // visited = [T, T, T, T]
-
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        while (!st.isEmpty()) {
-
-            // Pop 0 -> ans = [0]
-            // Pop 2 -> ans = [0, 2]
-            // Pop 1 -> ans = [0, 2, 1]
-            // Pop 3 -> ans = [0, 2, 1, 3]
-
-            ans.add(st.pop());
-        }
-
-        return ans; // [0, 2, 1, 3]
-    }
-
-    void dfs(int node, ArrayList<ArrayList<Integer>> adj,
-             boolean[] visited, Stack<Integer> st) {
-
-        visited[node] = true;
-
-        // DFS(0):
-        // visited[0] = true
-        // Neighbours = [1, 2]
-
-        // DFS(1):
-        // visited[1] = true
-        // Neighbours = [3]
-
-        // DFS(3):
-        // visited[3] = true
-        // Neighbours = []
-        // Koi neighbour nahi, so stack mein 3 push
-        // Stack: [3]
-
-        // DFS(1) resumes:
-        // Neighbour 3 already visited hai
-        // Ab 1 push hoga
-        // Stack: [3, 1]
-
-        // DFS(0) resumes:
-        // Next neighbour 2 par jayenge
-
-        // DFS(2):
-        // visited[2] = true
-        // Neighbours = [3]
-        // 3 already visited hai
-        // Ab 2 push hoga
-        // Stack: [3, 1, 2]
-
-        // DFS(0) resumes:
-        // Saare neighbours process ho gaye
-        // Ab 0 push hoga
-        // Stack: [3, 1, 2, 0]
-
-        for (int neighbour : adj.get(node)) {
-
-            if (!visited[neighbour]) {
-                dfs(neighbour, adj, visited, st);
-            }
-        }
 // in short
         // Node ko neighbours visit karne KE BAAD push karte hain.
         // Isi wajah se stack se pop karne par topological order milta hai.
+
         st.push(node);
     }
 }
 ```
-
-#### Solution 4 (Java)
-
-- **Submitted:** 2026-11-03 22:56:27
-- **Status:** Correct
-- **Marks:** 0
-
-```java
-import java.util.*;
-
-class Solution {
-    ArrayList<Integer> topoSort(ArrayList<ArrayList<Integer>> adj) {
-
-        int V = adj.size();
-
-        boolean[] visited = new boolean[V];
-        // visited = [F, F, F, F]
-
-        Stack<Integer> st = new Stack<>();
-        // Stack bottom -> top
-
-       
-        // Edges: 0 -> 1, 0 -> 2, 1 -> 3, 2 -> 3
-        //
-        // adj.get(0) = [1, 2]
-        // adj.get(1) = [3]
-        // adj.get(2) = [3]
-        // adj.get(3) = []
-
-        for (int i = 0; i < V; i++) {
-
-            // i = 0
-            // visited[0] = false, so DFS(0) call hoga
-
-            // i = 1, 2, 3 baad mein check honge
-            if (!visited[i]) {
-                dfs(i, adj, visited, st);
-            }
-        }
-
-        // DFS complete hone ke baad:
-        // Stack bottom -> top: [3, 1, 2, 0]
-        //
-        // visited = [T, T, T, T]
-
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        while (!st.isEmpty()) {
-
-            // Pop 0 -> ans = [0]
-            // Pop 2 -> ans = [0, 2]
-            // Pop 1 -> ans = [0, 2, 1]
-            // Pop 3 -> ans = [0, 2, 1, 3]
-
-            ans.add(st.pop());
-        }
-
-        return ans; // [0, 2, 1, 3]
-    }
-
-    void dfs(int node, ArrayList<ArrayList<Integer>> adj,
-             boolean[] visited, Stack<Integer> st) {
-
-        visited[node] = true;
-
-        // DFS(0):
-        // visited[0] = true
-        // Neighbours = [1, 2]
-
-        // DFS(1):
-        // visited[1] = true
-        // Neighbours = [3]
-
-        // DFS(3):
-        // visited[3] = true
-        // Neighbours = []
-        // Koi neighbour nahi, so stack mein 3 push
-        // Stack: [3]
-
-        // DFS(1) resumes:
-        // Neighbour 3 already visited hai
-        // Ab 1 push hoga
-        // Stack: [3, 1]
-
-        // DFS(0) resumes:
-        // Next neighbour 2 par jayenge
-
-        // DFS(2):
-        // visited[2] = true
-        // Neighbours = [3]
-        // 3 already visited hai
-        // Ab 2 push hoga
-        // Stack: [3, 1, 2]
-
-        // DFS(0) resumes:
-        // Saare neighbours process ho gaye
-        // Ab 0 push hoga
-        // Stack: [3, 1, 2, 0]
-
-        for (int neighbour : adj.get(node)) {
-
-            if (!visited[neighbour]) {
-                dfs(neighbour, adj, visited, st);
-            }
-        }
-// in short
-        // Node ko neighbours visit karne KE BAAD push karte hain.
-        // Isi wajah se stack se pop karne par topological order milta hai.
-        st.push(node);
-    }
-}
-```
-
-#### Solution 5 (Java)
-
-- **Submitted:** 2026-11-03 22:56:10
-- **Status:** Correct
-- **Marks:** 0
-
-```java
-import java.util.*;
-
-class Solution {
-    ArrayList<Integer> topoSort(ArrayList<ArrayList<Integer>> adj) {
-
-        int V = adj.size();
-
-        boolean[] visited = new boolean[V];
-        // visited = [F, F, F, F]
-
-        Stack<Integer> st = new Stack<>();
-        // Stack bottom -> top
-
-       
-        // Edges: 0 -> 1, 0 -> 2, 1 -> 3, 2 -> 3
-        //
-        // adj.get(0) = [1, 2]
-        // adj.get(1) = [3]
-        // adj.get(2) = [3]
-        // adj.get(3) = []
-
-        for (int i = 0; i < V; i++) {
-
-            // i = 0
-            // visited[0] = false, so DFS(0) call hoga
-
-            // i = 1, 2, 3 baad mein check honge
-            if (!visited[i]) {
-                dfs(i, adj, visited, st);
-            }
-        }
-
-        // DFS complete hone ke baad:
-        // Stack bottom -> top: [3, 1, 2, 0]
-        //
-        // visited = [T, T, T, T]
-
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        while (!st.isEmpty()) {
-
-            // Pop 0 -> ans = [0]
-            // Pop 2 -> ans = [0, 2]
-            // Pop 1 -> ans = [0, 2, 1]
-            // Pop 3 -> ans = [0, 2, 1, 3]
-
-            ans.add(st.pop());
-        }
-
-        return ans; // [0, 2, 1, 3]
-    }
-
-    void dfs(int node, ArrayList<ArrayList<Integer>> adj,
-             boolean[] visited, Stack<Integer> st) {
-
-        visited[node] = true;
-
-        // DFS(0):
-        // visited[0] = true
-        // Neighbours = [1, 2]
-
-        // DFS(1):
-        // visited[1] = true
-        // Neighbours = [3]
-
-        // DFS(3):
-        // visited[3] = true
-        // Neighbours = []
-        // Koi neighbour nahi, so stack mein 3 push
-        // Stack: [3]
-
-        // DFS(1) resumes:
-        // Neighbour 3 already visited hai
-        // Ab 1 push hoga
-        // Stack: [3, 1]
-
-        // DFS(0) resumes:
-        // Next neighbour 2 par jayenge
-
-        // DFS(2):
-        // visited[2] = true
-        // Neighbours = [3]
-        // 3 already visited hai
-        // Ab 2 push hoga
-        // Stack: [3, 1, 2]
-
-        // DFS(0) resumes:
-        // Saare neighbours process ho gaye
-        // Ab 0 push hoga
-        // Stack: [3, 1, 2, 0]
-
-        for (int neighbour : adj.get(node)) {
-
-            if (!visited[neighbour]) {
-                dfs(neighbour, adj, visited, st);
-            }
-        }
-
-        // IMPORTANT:
-        // Node ko neighbours visit karne KE BAAD push karte hain.
-        // Isi wajah se stack se pop karne par topological order milta hai.
-        st.push(node);
-    }
-}
-```
-
-*Generated on: 5/11/2026, 12:05:20 am*
