@@ -21,9 +21,52 @@ The problem can be found at the following link: [Question Link](https://www.geek
 - **Expected Time Complexity:** O(n)
 - **Expected Auxiliary Space Complexity:** O(1)
 
-### Accepted Solutions (2)
+### Accepted Solutions (3)
 
 #### Solution 1 (Java)
+
+- **Submitted:** 2026-11-09 00:01:16
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+	public int getLPSLength(String s) {
+		// TC:-- a a b c d a a b c
+		// i :-- 0 1 2 3 4 5 6 7 8
+		// lps -- 0 1 0 0 0 1 2 3 4
+		
+		// 0 len k lps always 0 hota h
+		// isliye hum 1 se start krte h check krna lps
+		int i = 1;
+		int len = 0;
+		
+		int[] lps = new int[s.length()];
+		
+		while (i < s.length()) {
+			// jb match ho jae tb
+			if (s.charAt(i) == s.charAt(len)) {
+				lps[i] = ++len;
+				i++;
+			}
+			// agar match nhi kiya to we are trying to match
+			// so we move to back
+			else if (len != 0) {
+				len = lps[len - 1];
+			}
+			// jb match n kre 0 krke aange bdho
+			else {
+				lps[i] = 0;
+				i++;
+			}
+		}
+		return len;
+		
+	}
+}
+```
+
+#### Solution 2 (Java)
 
 - **Submitted:** 2026-11-08 22:02:24
 - **Status:** Correct
@@ -78,7 +121,7 @@ class Solution {
 }
 ```
 
-#### Solution 2 (Java)
+#### Solution 3 (Java)
 
 - **Submitted:** 2026-11-08 22:01:59
 - **Status:** Correct
@@ -135,4 +178,4 @@ class Solution {
 }
 ```
 
-*Generated on: 8/11/2026, 10:03:10 pm*
+*Generated on: 9/11/2026, 12:01:37 am*
