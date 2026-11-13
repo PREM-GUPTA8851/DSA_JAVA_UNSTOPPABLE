@@ -1,93 +1,56 @@
-
-import java.util.*;
-
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
+        // cbaebabacd --> find krna h abc
+        // pehle to jitna length k p h utne size k window bnaenge
+        // cba --> abc == abc --> match --> add 0th index
+        // bae --> aeb NE
+        // aeb --> aeb NE
+        // eba --> abe NE
+        // bab --> abb NE
+        // aba --> aab NE
+        // bac --> abc == abc --> match --> add 6th index
 
-        List<Integer> ans = new ArrayList<>();
+        // pehle aapn string se substring nikalenge j - i + 1 size ki aur uske pehle y dono 0 p point krnge then aapn grab krenge y j - i + 1 part string se aur us part ko sort krenge then check krenge if equal hua to index store krenge aur n hua to continue then return arraylist -->TC O(n k log k) aur s O(n*k)
 
-        int n = s.length();
-        int m = p.length();
+        // another optimised version --> frequency + Hashmap
+        // aapn pehle string aur pattern ki char frequecy store krenge aur match krenge ki vo equal h y nhi if it is equal then add 0 bcz it is found in first 0th index              
+    // calculate height also
+    int n = s.length();
+    int k = p.length();
+    
+    ArrayList<Integer> ans = new ArrayList<>();
+    // edge case indexOutOfBoundsException
+    if(k > n) return ans;
+    // pehle dono k liye 26 char k array create krenge
+    int[] wfreq = new int[26];
+    int[] pfreq = new int[26];
 
-        // Agar p ki length s se badi hai,
-        // toh anagram possible nahi hai
-        if (m > n) {
-            return ans;
-        }
+    // now we have[0,0,0......] upto 26 index
+    // pehle pattern k char ki freq store krenge
+    for(int i = 0; i < k; i++){
+        // pattt--> a 
+        
+        pfreq[p.charAt(i) - 'a']++;
+        wfreq[s.charAt(i) - 'a']++;
+    }
 
-        // p aur current window ki character frequency
-        int[] pFreq = new int[26];
-        int[] winFreq = new int[26];
+    if(Arrays.equals(pfreq, wfreq)){
+    ans.add(0); // 0
+    }
 
-        // p = "abc"
-        // pFreq mein a, b, c ki frequency store hogi
-        for (int i = 0; i < m; i++) {
-            pFreq[p.charAt(i) - 'a']++;
-        }
+    // now sliding window concept
+    for(int i = k; i < n; i++){
+    // ab apn next char ki freq decrement krenge aur 
+    wfreq[s.charAt(i - k) - 'a']--;
+    //previous char ki freq increment krenge usi window size 
+    wfreq[s.charAt(i) - 'a']++;
+    //check krte rhenge ki pattern k array k equal hui y nhi hui to start index add kr denge
+    if(Arrays.equals(wfreq, pfreq)){
+        int start = i - k + 1;
+        ans.add(start);
+    }
 
-        // First window ki frequency banao
-        // s = "cbaebabacd"
-        // p = "abc"
-        // First window = "cba"
-
-        for (int i = 0; i < m; i++) {
-            winFreq[s.charAt(i) - 'a']++;
-        }
-
-        // DRY RUN:
-        // pFreq:   a=1, b=1, c=1
-        // winFreq: a=1, b=1, c=1
-        // Window "cba" anagram hai
-        // ans = [0]
-
-        if (Arrays.equals(pFreq, winFreq)) {
-            ans.add(0);
-        }
-
-        // Sliding window: ek character remove,
-        // aur ek naya character add karenge
-        for (int i = m; i < n; i++) {
-
-            // Window se leftmost character remove karo
-            char removeChar = s.charAt(i - m);
-            winFreq[removeChar - 'a']--;
-
-            // Window mein naya character add karo
-            char addChar = s.charAt(i);
-            winFreq[addChar - 'a']++;
-
-            // Current window ka starting index
-            int start = i - m + 1;
-
-            // DRY RUN:
-            // i=3: window "bae"
-            // ans = [0]
-            //
-            // i=4: window "aeb"
-            // ans = [0]
-            //
-            // i=5: window "eba"
-            // ans = [0]
-            //
-            // i=6: window "bab"
-            // ans = [0]
-            //
-            // i=7: window "aba"
-            // ans = [0]
-            //
-            // i=8: window "bac"
-            // Characters a, b, c ki frequency 1 hai
-            // Match! ans = [0, 6]
-            //
-            // i=9: window "acd"
-            // Match nahi hua
-            // ans = [0, 6]
-
-            if (Arrays.equals(pFreq, winFreq)) {
-                ans.add(start);
-            }
-        }
-
-        return ans;
+    }
+    return ans;
     }
 }
