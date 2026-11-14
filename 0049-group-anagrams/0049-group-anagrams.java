@@ -22,21 +22,40 @@ class Solution {
     // flowchart--> pehle aapn strings lenge // eat
     for(String s: strs){
     String str = s; // eat
+    // tea
+    // tan
+    // ate
     // fhr usko charArray m convert
     char[] temp = s.toCharArray(); // ['e','a','t']
+    // ['t','e', 'a'];
+    // ['t','a', 'n'];
+    // ['a', 't', 'e'];
     // then uske characters ko sort
     Arrays.sort(temp);
     // aet
+    // aet
+    // ant
+    // aet
     // now converted into string bcz hashmap m key string h
     String temp_ = new String(temp);
+    // "aet"
+    // "aet"
+    // "ant"
+    // "aet"
     // then map m key sort wale string ko key add krenge
     // pehle map m check krenge ki vo sorted key already present ho n h 
     if(!map.containsKey(temp_)){
-        map.put(temp_,new ArrayList<>());// aet-->[]
+        map.put(temp_,new ArrayList<>());
+        // map --> {aet, []}
+        // map --> {ant, []}
     }
     // ant --> tan
     // ant --> tan, nat
     map.get(temp_).add(str);
+    // map --> {aet, [eat]}
+    // map --> {aet, [eat, tea]}
+    // map --> {ant, [tan]}
+    // map --> {aet, [eat, tea, ate]}
     }
     // aur fhr at last map ki value return kr denge
     return new ArrayList<>(map.values());
