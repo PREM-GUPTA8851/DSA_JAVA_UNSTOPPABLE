@@ -3,8 +3,7 @@ class Solution {
         int balance = 0;
         int maxImbalance = 0;
 
-        // Dry run: s = "][]["
-        // Initially:
+        // Dry run: s = "][]["...
         // balance = 0, maxImbalance = 0
 
         for (int i = 0; i < s.length(); i++) {
