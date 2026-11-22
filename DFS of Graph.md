@@ -21,9 +21,186 @@ The problem can be found at the following link: [Question Link](https://www.geek
 - **Expected Time Complexity:** O(V + E)
 - **Expected Auxiliary Space Complexity:** O(V + E)
 
-### Accepted Solutions (5)
+### Accepted Solutions (7)
 
 #### Solution 1 (Java)
+
+- **Submitted:** 2026-11-22 19:47:20
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
+        // code here
+        // now dfs 
+/* pehle 0 aata h then uska neigbour 2 then uska neighbour
+4 ab uska neighbour nhi h to fhr usko stack recursive call m add kr 
+do --> 
+0
+2
+4
+
+fhr iske baad recursive stack se element nikalenge --> 0 --> 2 --> 4 
+
+then uska neighbour 3 aata h  fhr uska koi neighbour n hota to vo 
+//recursive stack m add ho jata h 
+3
+// fhr recursive stack se element niklta h
+
+// fhr 
+1 
+fhr 1 aata h
+so o/p --> 0,2,4,3,1
+    sbse pehle ans krke arraylist lenge
+    */
+    ArrayList<Integer> ans = new ArrayList<>();
+    // ans.add(0);
+    // ek visited mark krne k liye array lenge
+    boolean[] visited = new boolean[adj.size()];
+    visited[0]  = true;
+    Stack<Integer> st = new Stack<>();
+    // all dfs starts from 0 
+    dfs(0, visited, ans, adj);
+    // ab stack rcursive call se element nikale
+    return ans;
+}
+// hume ek new fn bnana pdega jo sirf dfs dfs bs depth tk jaega
+    public void dfs(int start, boolean[] visited, ArrayList<Integer>ans,ArrayList<ArrayList<Integer>> adj ){
+        int node = start;
+        visited[start]  = true;
+        ans.add(start);
+        for(int neighbour: adj.get(node)){
+            if(!visited[neighbour]){
+                // visited[neighbour]  = true;
+                dfs(neighbour, visited, ans, adj);
+            }
+        }
+    }
+}
+```
+
+#### Solution 2 (Java)
+
+- **Submitted:** 2026-11-22 19:46:20
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
+        // code here
+        // now dfs 
+/* pehle 0 aata h then uska neigbour 2 then uska neighbour
+4 ab uska neighbour nhi h to fhr usko stack recursive call m add kr 
+do --> 
+0
+2
+4
+
+fhr iske baad stack se element nikalenge --> 0 --> 2 --> 4 
+
+then uska neighbour 3 aata h  fhr uska koi neighbour n hota to vo 
+// stack m add ho jata h 
+3
+// fhr stack se element niklta h
+
+// fhr 
+1 
+fhr 1 aata h
+so o/p --> 0,2,4,3,1
+    sbse pehle ans krke arraylist lenge
+    */
+    ArrayList<Integer> ans = new ArrayList<>();
+    // ans.add(0);
+    // ek visited mark krne k liye array lenge
+    boolean[] visited = new boolean[adj.size()];
+    visited[0]  = true;
+    Stack<Integer> st = new Stack<>();
+    // all dfs starts from 0 
+    // now ab uska neighbour check krenge 4
+    dfs(0, visited, ans, adj);
+    // yha tk aapn k pass saare elements aa gye
+    // 4 2 3 1 0
+    // ab stack se element nikale
+    return ans;
+}
+// hume ek new fn bnana pdega jo sirf dfs dfs bs depth tk jaega
+    public void dfs(int start, boolean[] visited, ArrayList<Integer>ans,ArrayList<ArrayList<Integer>> adj ){
+        int node = start;
+        visited[start]  = true;
+        ans.add(start);
+        for(int neighbour: adj.get(node)){
+            if(!visited[neighbour]){
+                // visited[neighbour]  = true;
+                dfs(neighbour, visited, ans, adj);
+            }
+        }
+    }
+}
+```
+
+#### Solution 3 (Java)
+
+- **Submitted:** 2026-11-22 19:45:32
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
+        // code here
+        // now dfs 
+/* pehle 0 aata h then uska neigbour 2 then uska neighbour
+4 ab uska neighbour nhi h to fhr usko stack m add kr 
+do --> 
+0
+2
+4
+
+fhr iske baad stack se element nikalenge --> 0 --> 2 --> 4 
+
+then uska neighbour 3 aata h  fhr uska koi neighbour n hota to vo 
+// stack m add ho jata h 
+3
+// fhr stack se element niklta h
+
+// fhr 
+1 
+fhr 1 aata h
+so o/p --> 0,2,4,3,1
+    sbse pehle ans krke arraylist lenge
+    */
+    ArrayList<Integer> ans = new ArrayList<>();
+    // ans.add(0);
+    // ek visited mark krne k liye array lenge
+    boolean[] visited = new boolean[adj.size()];
+    visited[0]  = true;
+    Stack<Integer> st = new Stack<>();
+    // all dfs starts from 0 
+    // now ab uska neighbour check krenge 4
+    dfs(0, visited, ans, adj);
+    // yha tk aapn k pass saare elements aa gye
+    // 4 2 3 1 0
+    // ab stack se element nikale
+    return ans;
+}
+// hume ek new fn bnana pdega jo sirf dfs dfs bs depth tk jaega
+    public void dfs(int start, boolean[] visited, ArrayList<Integer>ans,ArrayList<ArrayList<Integer>> adj ){
+        int node = start;
+        visited[start]  = true;
+        ans.add(start);
+        for(int neighbour: adj.get(node)){
+            if(!visited[neighbour]){
+                // visited[neighbour]  = true;
+                dfs(neighbour, visited, ans, adj);
+            }
+        }
+    }
+}
+```
+
+#### Solution 4 (Java)
 
 - **Submitted:** 2026-11-03 00:32:10
 - **Status:** Correct
@@ -157,7 +334,7 @@ class Solution {
 }
 ```
 
-#### Solution 2 (Java)
+#### Solution 5 (Java)
 
 - **Submitted:** 2026-11-03 00:28:00
 - **Status:** Correct
@@ -290,49 +467,9 @@ class Solution {
 }
 ```
 
-#### Solution 3 (Java)
+#### Solution 6 (Java)
 
-- **Submitted:** 2026-11-03 00:27:28
-- **Status:** Correct
-- **Marks:** 0
-
-```java
-class Solution {
-    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
-       // ans k liye array list bnaenge bcz function m whi return krna h
-       
-       ArrayList<Integer> ans = new ArrayList<>();
-       boolean[] visited = new boolean[adj.size()];
-    //   Queue<Integer> q = new LinkedList<>();
-       
-       
-        
-    
-        dfsHelper(0, adj, ans, visited);
-        return ans;
-    }
-    
-public static void dfsHelper(int node, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> ans, boolean[] visited){
-
-        visited[node] = true;
-        ans.add(node);
-      
-            
-            for(int neighbour : adj.get(node)){
-                if(!visited[neighbour]){
-                    // to waps se uske neighbour check kro
-                    visited[neighbour] = true;
-                    dfsHelper(neighbour, adj, ans, visited);
-                }
-            }
-            
-        }
-}
-```
-
-#### Solution 4 (Java)
-
-- **Submitted:** 2026-11-02 22:45:04
+- **Submitted:** 2026-11-02 21:30:47
 - **Status:** Correct
 - **Marks:** 0
 
@@ -463,11 +600,11 @@ class Solution {
 }
 ```
 
-#### Solution 5 (Java)
+#### Solution 7 (Java)
 
-- **Submitted:** 2026-11-02 22:42:49
+- **Submitted:** 2026-11-02 21:30:41
 - **Status:** Correct
-- **Marks:** 0
+- **Marks:** 2
 
 ```java
 import java.util.*;
@@ -596,4 +733,4 @@ class Solution {
 }
 ```
 
-*Generated on: 3/11/2026, 12:32:52 am*
+*Generated on: 22/11/2026, 7:49:44 pm*
