@@ -33,9 +33,329 @@ val[] = [500], wt[] = [30], capacity = 10
 - **Expected Time Complexity:** O(n log n)
 - **Expected Auxiliary Space Complexity:** O(n)
 
-### Accepted Solutions (2)
+### Accepted Solutions (5)
 
 #### Solution 1 (Java)
+
+- **Submitted:** 2026-11-23 13:54:04
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public double fractionalKnapsack(int[] val, int[] wt, int capacity) {
+
+        int n = val.length;
+    /*
+    val[] =
+    [1, 5, 7, 2, 7, 10]
+    wt[] =
+    [4, 9, 6, 3, 7, 3]
+    capacity =
+    24
+    */
+
+        // Value aur weight ko ek saath store karenge
+    double[][] items = new double[n][2];
+
+    for (int i = 0; i < n; i++) {
+            items[i][0] = val[i];  // value
+            items[i][1] = wt[i];   // weight
+    }
+
+        /*
+        Ab items array: --> RATIO --> val/ wgt
+        items[val, wght]
+        items[0] = [1, 4]  --> ratio = 1/4 -->0.25
+        items[1] = [5, 9] --> ratio = 5/9 ->0.55
+        items[2] = [7, 6] --> ratio = 1.16
+        items[3] = [2, 3] --> ratio = 0.66
+        items[4] = [7, 7] --> ratio = 1
+        items[5] = [10,3] --> ratio = 3.33
+        Ratio ka matlab: 1 kg lene par kitna profit milega?
+        */
+
+        // Highest ratio wala item pehle
+        java.util.Arrays.sort(items, (a, b) ->
+            Double.compare(b[0] / b[1], a[0] / a[1])
+        );
+
+        /*
+        Sorting ke baad order:
+        items[0] = [10,3] --> ratio = 3.33
+        items[1] = [7, 6] --> ratio = 1.16
+        items[2] = [7, 7] --> ratio = 1
+        items[3] = [2, 3] --> ratio = 0.66
+        items[4] = [5, 9] --> ratio = 5/9 ->0.55
+        items[5] = [1, 4]  --> ratio = 1/4 -->0.25
+        */
+
+        double profit = 0.0;
+
+        // Ek-ek item choose karenge
+        for (int i = 0; i < n; i++) {
+
+            if (capacity == 0) {
+                break;
+            }
+
+            int value = (int) items[i][0]; 
+            int weight = (int) items[i][1];
+            // i --> 0
+            // val = 10; wgt = 3
+            // 3 <= 24
+            
+            // p = 10; c = 21
+            // i = 1;
+            // val = 7, wt = 6
+            // p = 7 + 10 = 17
+            // c = 21 - 6 = 15
+            
+            // i = 2
+            // val = 7, wt = 7 
+            // p = 17 + 7 = 24
+            // c = 15 - 7 = 8
+            
+            // i = 3
+            // val = 2, wt = 3
+            // p = 24 + 2 = 26
+            // c = 8 - 3 = 5
+            
+            // i = 4
+            // val = 5; wt = 9 ; c = 5
+            // 9 < 5
+            // p = 5/9 * 5 = 25/9 = 28.777
+            // yha p c == 0 honi chahiye bcz 
+            // capacity already less than wht h isliye 
+            // aapn n val/ wgt *c krke nikala h
+            // aur fhr next iteration p capacity 0 hui return krwa do ans;
+            
+            // 
+            if (weight <= capacity) {
+                // to aapn ko uski value profit m add krni h
+                profit += value;
+                // profit = 0 + 10 = 10
+                capacity -= weight;
+                // capacity = 24 - 3 = 21 
+            }
+            else{
+                profit += (double) value / weight * capacity;
+                capacity = 0;
+            }
+        }
+
+        // FINAL:
+        // Total profit = 240.0
+        // Remaining capacity = 0
+        return profit;
+    }
+}
+```
+
+#### Solution 2 (Java)
+
+- **Submitted:** 2026-11-23 13:53:55
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public double fractionalKnapsack(int[] val, int[] wt, int capacity) {
+
+        int n = val.length;
+    /*
+    val[] =
+    [1, 5, 7, 2, 7, 10]
+    wt[] =
+    [4, 9, 6, 3, 7, 3]
+    capacity =
+    24
+    */
+
+        // Value aur weight ko ek saath store karenge
+    double[][] items = new double[n][2];
+
+    for (int i = 0; i < n; i++) {
+            items[i][0] = val[i];  // value
+            items[i][1] = wt[i];   // weight
+    }
+
+        /*
+        Ab items array: --> RATIO --> val/ wgt
+        items[val, wght]
+        items[0] = [1, 4]  --> ratio = 1/4 -->0.25
+        items[1] = [5, 9] --> ratio = 5/9 ->0.55
+        items[2] = [7, 6] --> ratio = 1.16
+        items[3] = [2, 3] --> ratio = 0.66
+        items[4] = [7, 7] --> ratio = 1
+        items[5] = [10,3] --> ratio = 3.33
+        Ratio ka matlab: 1 kg lene par kitna profit milega?
+        */
+
+        // Highest ratio wala item pehle
+        java.util.Arrays.sort(items, (a, b) ->
+            Double.compare(b[0] / b[1], a[0] / a[1])
+        );
+
+        /*
+        Sorting ke baad order:
+        items[0] = [10,3] --> ratio = 3.33
+        items[1] = [7, 6] --> ratio = 1.16
+        items[2] = [7, 7] --> ratio = 1
+        items[3] = [2, 3] --> ratio = 0.66
+        items[4] = [5, 9] --> ratio = 5/9 ->0.55
+        items[5] = [1, 4]  --> ratio = 1/4 -->0.25
+        */
+
+        double profit = 0.0;
+
+        // Ek-ek item choose karenge
+        for (int i = 0; i < n; i++) {
+
+            if (capacity == 0) {
+                break;
+            }
+
+            int value = (int) items[i][0]; 
+            int weight = (int) items[i][1];
+            // i --> 0
+            // val = 10; wgt = 3
+            // 3 <= 24
+            
+            // p = 10; c = 21
+            // i = 1;
+            // val = 7, wt = 6
+            // p = 7 + 10 = 17
+            // c = 21 - 6 = 15
+            
+            // i = 2
+            // val = 7, wt = 7 
+            // p = 17 + 7 = 24
+            // c = 15 - 7 = 8
+            
+            // i = 3
+            // val = 2, wt = 3
+            // p = 24 + 2 = 26
+            // c = 8 - 3 = 5
+            
+            // i = 4
+            // val = 5; wt = 9 ; c = 5
+            // 9 < 5
+            // p = 5/9 * 5 = 25/9 = 28.777
+            // yha p c == 0 honi chahiye bcz 
+            // capacity already less than wht h isliye 
+            // aapn n val/ wgt *c krke nikala h
+            // aur fhr next iteration p capacity 0 hui return krwa do ans;
+            
+            // 
+            if (weight <= capacity) {
+                // to aapn ko uski value profit m add krni h
+                profit += value;
+                // profit = 0 + 10 = 10
+                capacity -= weight;
+                // capacity = 24 - 3 = 21 
+            }
+            else{
+                profit += (double) value / weight * capacity;
+                capacity = 0;
+            }
+        }
+
+        // FINAL:
+        // Total profit = 240.0
+        // Remaining capacity = 0
+        return profit;
+    }
+}
+```
+
+#### Solution 3 (Java)
+
+- **Submitted:** 2026-11-23 11:04:39
+- **Status:** Correct
+- **Marks:** 0
+
+```java
+class Solution {
+    public double fractionalKnapsack(int[] val, int[] wt, int capacity) {
+
+        int n = val.length;
+    /*
+    val[] =
+    [1, 5, 7, 2, 7, 10]
+    wt[] =
+    [4, 9, 6, 3, 7, 3]
+    capacity =
+    24
+    */
+
+        // Step 1: Value aur weight ko ek saath store karenge
+    double[][] items = new double[n][2];
+
+    for (int i = 0; i < n; i++) {
+            items[i][0] = val[i];  // value
+            items[i][1] = wt[i];   // weight
+    }
+
+        /*
+        Ab items array: --> RATIO --> val/ wgt
+        items[val, wght]
+        items[0] = [1, 4]  --> ratio = 1/4 -->0.25
+        items[1] = [5, 9] --> ratio = 5/9 ->0.55
+        items[2] = [7, 6] --> ratio = 1.16
+        items[3] = [2, 3] --> ratio = 0.66
+        items[4] = [7, 7] --> ratio = 1
+        items[5] = [10,3] --> ratio = 3.33
+        Ratio ka matlab: 1 kg lene par kitna profit milega?
+        */
+
+        // Step 2: Highest ratio wala item pehle
+        java.util.Arrays.sort(items, (a, b) ->
+            Double.compare(b[0] / b[1], a[0] / a[1])
+        );
+
+        /*
+        Sorting ke baad order:
+        items[5] = [10,3] --> ratio = 3.33
+        items[2] = [7, 6] --> ratio = 1.16
+        items[4] = [7, 7] --> ratio = 1
+        items[3] = [2, 3] --> ratio = 0.66
+        items[1] = [5, 9] --> ratio = 5/9 ->0.55
+        items[0] = [1, 4]  --> ratio = 1/4 -->0.25
+        */
+
+        double profit = 0.0;
+
+        // Ek-ek item choose karenge
+        for (int i = 0; i < n; i++) {
+
+            if (capacity == 0) {
+                break;
+            }
+
+            int value = (int) items[i][0];
+            int weight = (int) items[i][1];
+
+            if (weight <= capacity) {
+                // to aapn ko uski value profit m add krni h
+                profit += value;
+                capacity -= weight;
+            }
+            else{
+                profit += (double) value / weight * capacity;
+                capacity = 0;
+            }
+        }
+
+        // FINAL:
+        // Total profit = 240.0
+        // Remaining capacity = 0
+        return profit;
+    }
+}
+```
+
+#### Solution 4 (Java)
 
 - **Submitted:** 2026-11-22 22:47:40
 - **Status:** Correct
@@ -153,7 +473,7 @@ class Solution {
 }
 ```
 
-#### Solution 2 (Java)
+#### Solution 5 (Java)
 
 - **Submitted:** 2026-11-22 22:42:18
 - **Status:** Correct
@@ -206,4 +526,4 @@ class Solution {
 }
 ```
 
-*Generated on: 22/11/2026, 10:49:01 pm*
+*Generated on: 23/11/2026, 1:54:45 pm*
