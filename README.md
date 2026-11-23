@@ -45,6 +45,7 @@ This repository serves as collection of my solutions to various GeeksforGeeks Da
 | [0922-sort-array-by-parity-ii](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0922-sort-array-by-parity-ii) |
 | [1441-build-an-array-with-stack-operations](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1441-build-an-array-with-stack-operations) |
 | [1703-minimum-adjacent-swaps-for-k-consecutive-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1703-minimum-adjacent-swaps-for-k-consecutive-ones) |
+| [1710-maximum-units-on-a-truck](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1710-maximum-units-on-a-truck) |
 | [1886-determine-whether-matrix-can-be-obtained-by-rotation](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1886-determine-whether-matrix-can-be-obtained-by-rotation) |
 | [2149-rearrange-array-elements-by-sign](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2149-rearrange-array-elements-by-sign) |
 | [2643-row-with-maximum-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/2643-row-with-maximum-ones) |
@@ -132,6 +133,7 @@ This repository serves as collection of my solutions to various GeeksforGeeks Da
 | [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
 | [0912-sort-an-array](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0912-sort-an-array) |
 | [0922-sort-array-by-parity-ii](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0922-sort-array-by-parity-ii) |
+| [1710-maximum-units-on-a-truck](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1710-maximum-units-on-a-truck) |
 ## String
 |  |
 | ------- |
@@ -204,6 +206,7 @@ This repository serves as collection of my solutions to various GeeksforGeeks Da
 | [0767-reorganize-string](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/0767-reorganize-string) |
 | [1221-split-a-string-in-balanced-strings](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1221-split-a-string-in-balanced-strings) |
 | [1703-minimum-adjacent-swaps-for-k-consecutive-ones](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1703-minimum-adjacent-swaps-for-k-consecutive-ones) |
+| [1710-maximum-units-on-a-truck](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1710-maximum-units-on-a-truck) |
 | [1963-minimum-number-of-swaps-to-make-the-string-balanced](https://github.com/PREM-GUPTA8851/DSA_JAVA_UNSTOPPABLE/tree/master/1963-minimum-number-of-swaps-to-make-the-string-balanced) |
 ## Tree
 |  |
